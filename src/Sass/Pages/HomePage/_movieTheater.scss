@@ -10,8 +10,10 @@
     .ant-tabs-tab {
       padding: 0 !important;
       margin: 0 !important;
+      opacity: 0.7;
     }
     .ant-tabs-tab-active {
+      opacity: 1;
       background-color: #f0f0f0;
     }
     .ant-tabs-nav-operations {
@@ -33,6 +35,9 @@
         justify-content: space-between;
         padding: 20px;
         width: 350px;
+        &:hover {
+          background-color: #f0f0f0;
+        }
         .cinemaByCode-logo {
           width: 18%;
         }
@@ -75,7 +80,7 @@
           background-color: gray;
         }
         .item-info {
-          padding: 20px;
+          margin: 20px;
           border-bottom: 1px solid #ccc;
           .info-top {
             display: flex;
@@ -89,7 +94,7 @@
             }
           }
           .info-bottom {
-            padding: 10px 0 0;
+            padding: 10px 0;
             .btn-time {
               color: #fb4226;
               border-color: #fb4226;
