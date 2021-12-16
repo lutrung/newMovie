@@ -1,0 +1,675 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  background: white;
+  font-family: "Roboto", sans-serif;
+  color: black;
+  font-size: 12px;
+  font-weight: normal;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: black !important;
+}
+
+ul,
+li {
+  list-style: none;
+  margin-bottom: 0 !important;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.95);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+          box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+}
+
+.header .header-logo {
+  width: 20%;
+  margin: 0 0 0 20px;
+}
+
+.header .header-logo img {
+  height: 50px;
+  width: 50px;
+}
+
+.header .header-menu,
+.header .header-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header .header-menu .header-item,
+.header .header-user .header-item {
+  margin: 0 20px 0 0;
+}
+
+.header .header-user {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 20%;
+}
+
+.footer {
+  background-color: #222;
+  padding: 50px 0;
+  color: #949494;
+}
+
+.footer .footer-container {
+  width: 940px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px 0;
+  border-top: 1px solid #4a4a4a;
+  border-bottom: 1px solid #4a4a4a;
+}
+
+.footer .footer-container .footer-left {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.footer .footer-container .footer-left img {
+  border-radius: 8px;
+  width: 80px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.footer .footer-container .footer-left .left-info h3 {
+  color: white;
+}
+
+.footer .footer-container .footer-left .left-info p {
+  margin-bottom: 0;
+  font-size: 13px;
+}
+
+.footer .footer-container .footer-left .left-info p a {
+  color: #fb4226 !important;
+}
+
+.footer .footer-container .footer-left .left-info p a:hover {
+  border-bottom: 1px solid #fb4226;
+}
+
+.footer .footer-container .footer-right {
+  width: 20%;
+}
+
+.footer .footer-container .footer-right img {
+  width: 130px;
+}
+
+.carousel {
+  margin-top: 60px;
+}
+
+.carousel .slick-prev {
+  z-index: 9;
+  left: 25px;
+  width: 50px;
+  height: 50px;
+}
+
+.carousel .slick-next {
+  z-index: 9;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+}
+
+.carousel .slick-prev:before,
+.carousel .slick-next:before {
+  font-size: 50px;
+}
+
+.carousel .slick-dots {
+  bottom: 50px;
+}
+
+.carousel .slick-dots .slick-active button:before {
+  opacity: 1;
+  color: #fb4226;
+}
+
+.carousel .slick-dots button:before {
+  opacity: 1;
+  font-size: 20px;
+  color: white;
+}
+
+.carousel .carousel-item {
+  position: relative;
+}
+
+.carousel .carousel-item .carousel-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.carousel .carousel-item .carousel-play:hover {
+  opacity: 0.7;
+  background-color: unset;
+}
+
+.showTime {
+  overflow: unset !important;
+  width: 940px;
+  margin: auto !important;
+}
+
+.showTime .ant-tabs-nav::before {
+  border-bottom: none !important;
+}
+
+.showTime .ant-tabs-nav .ant-tabs-nav-wrap {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.showTime .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  font-size: 22px;
+  color: #fa5238;
+}
+
+.showTime .ant-tabs-ink-bar {
+  background: #fa5238;
+}
+
+.showTime .ant-tabs-tab:hover {
+  color: #fa5238;
+}
+
+.showTime .ant-tabs-tab-btn {
+  font-size: 20px;
+}
+
+.showTime .slick-prev:before,
+.showTime .slick-next:before {
+  color: #8f8f8f;
+  font-size: 50px;
+}
+
+.showTime .slick-prev {
+  left: -70px;
+  width: 50px;
+  height: 50px;
+}
+
+.showTime .slick-next {
+  right: -70px;
+  width: 50px;
+  height: 50px;
+}
+
+.showTime .showTime-item {
+  overflow: hidden;
+  padding: 10px;
+  height: 400px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.showTime .showTime-item .item-thumbnail {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 318px;
+  width: 100%;
+  margin-bottom: 10px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.showTime .showTime-item .item-thumbnail .item-overlay {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 0 0;
+  background: -webkit-gradient(linear, left bottom, left top, from(#000), to(transparent));
+  background: linear-gradient(to top, #000, transparent 100%);
+  top: 0;
+  border-radius: 4px;
+}
+
+.showTime .showTime-item .item-thumbnail .item-play {
+  display: none;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+  background: 0 0;
+  border: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.showTime .showTime-item .item-thumbnail .item-play:hover {
+  width: 70px;
+  height: 70px;
+}
+
+.showTime .showTime-item .item-info {
+  position: relative;
+  width: 100%;
+}
+
+.showTime .showTime-item .item-info .item-name,
+.showTime .showTime-item .item-info .item-name2 {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  display: block;
+  font-size: 16px;
+  color: #000;
+  line-height: 22px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.showTime .showTime-item .item-info .item-name .item-age,
+.showTime .showTime-item .item-info .item-name2 .item-age {
+  font-size: 14px;
+  background-color: #fb4226;
+  border-radius: 4px;
+  padding: 0 5px;
+  color: #fff;
+  min-width: 33px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.showTime .showTime-item .item-info .item-buyTickets {
+  position: absolute;
+  bottom: -50px;
+  width: 100%;
+  left: -200%;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px;
+  text-align: center;
+  background: -webkit-gradient(linear, right top, left top, from(#fb4226), to(#ce3017));
+  background: linear-gradient(to left, #fb4226, #ce3017 100%);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.showTime .showTime-item .item-info .item-buyTickets:hover {
+  background: -webkit-gradient(linear, left top, right top, from(#fb4226), to(#ce3017));
+  background: linear-gradient(to right, #fb4226, #ce3017 100%);
+}
+
+.showTime .showTime-item:hover .item-thumbnail .item-play,
+.showTime .showTime-item:hover .item-thumbnail .item-overlay {
+  display: block;
+}
+
+.showTime .showTime-item:hover .item-info .item-name {
+  display: none;
+}
+
+.showTime .showTime-item:hover .item-info .item-buyTickets {
+  left: 0;
+}
+
+.movieTheater {
+  width: 940px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 120px;
+}
+
+.movieTheater .movieTheater-container {
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+}
+
+.movieTheater .movieTheater-container .ant-tabs-tab {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.movieTheater .movieTheater-container .ant-tabs-tab-active {
+  background-color: #f0f0f0;
+}
+
+.movieTheater .movieTheater-container .ant-tabs-nav-operations {
+  display: none;
+}
+
+.movieTheater .ant-tabs-tabpane {
+  padding: 0 !important;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .ant-tabs-nav-wrap {
+  height: 540px;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .ant-tabs-nav-operations {
+  display: none;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .cinemaByCode-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+  width: 350px;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .cinemaByCode-item .cinemaByCode-logo {
+  width: 18%;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .cinemaByCode-item .cinemaByCode-info {
+  width: 80%;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .cinemaByCode-item .cinemaByCode-info .info-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  margin: 0;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .cinemaByCode-item .cinemaByCode-info .info-address {
+  font-size: 12px;
+  color: #949494;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .cinemaByCode-item .cinemaByCode-info .info-detail {
+  color: #fb4226;
+  font-size: 12px;
+  margin: 0;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes {
+  height: 540px;
+  overflow-y: scroll;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes::-webkit-scrollbar {
+  width: 5px;
+  background-color: #ddd;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes::-webkit-scrollbar-thumb {
+  background-color: gray;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes .item-info {
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes .item-info .info-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes .item-info .info-top img {
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes .item-info .info-top .top-name {
+  margin: 0;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes .item-info .info-bottom {
+  padding: 10px 0 0;
+}
+
+.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes .item-info .info-bottom .btn-time {
+  color: #fb4226;
+  border-color: #fb4226;
+  font-size: 15px;
+  margin: 0 10px 10px 0;
+}
+
+.news {
+  width: 940px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 120px;
+}
+
+.news .news-tabs .ant-tabs-nav::before {
+  border-bottom: none !important;
+}
+
+.news .news-tabs .ant-tabs-nav .ant-tabs-nav-wrap {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.news .news-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  font-size: 22px;
+  color: #fa5238;
+}
+
+.news .news-tabs .ant-tabs-ink-bar {
+  background: #fa5238;
+}
+
+.news .news-tabs .ant-tabs-tab-btn {
+  font-size: 20px;
+}
+
+.news .news-tabs .ant-tabs-tab:hover {
+  color: #fa5238;
+}
+
+.film24h .listItem {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 49% 49%;
+      grid-template-columns: 49% 49%;
+  gap: 15px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.film24h .listItem .film24h-item img {
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.film24h .listItem .film24h-item .item-title {
+  cursor: pointer;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 20px;
+  font-size: 16px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  margin-bottom: 5px;
+}
+
+.film24h .listItem .film24h-item .item-title:hover {
+  color: #fb4226;
+}
+
+.film24h .listItem .film24h-item .item-detail {
+  font-size: 13px;
+  color: #4a4a4a;
+  padding: 0 5px 0 0;
+  margin: 0 !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.film24h .seeMore {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  margin: 20px auto;
+  background-color: transparent;
+  font-size: 14px;
+  color: #949494;
+  border: 1px solid #949494;
+  border-radius: 4px;
+  padding: 7px 25px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.film24h .seeMore:hover {
+  background-color: #fb4226;
+  border-color: #fb4226;
+  color: #fff !important;
+}
+
+.application {
+  padding: 120px 0 80px 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.application .app-container {
+  width: 940px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.application .app-container .app-left {
+  width: 50%;
+}
+
+.application .app-container .app-left h2 {
+  font-size: 32px;
+  color: #fff;
+}
+
+.application .app-container .app-left p {
+  font-size: 16px;
+  color: #fff;
+}
+
+.application .app-container .app-left a {
+  background-color: #fb4226;
+  padding: 10px 20px;
+  color: #fff !important;
+  font-size: medium;
+  font-weight: 700;
+  border: none;
+  border-radius: 4px;
+}
+
+.application .app-container .app-right {
+  position: relative;
+  width: 50%;
+}
+
+.application .app-container .app-right .app-mobile {
+  padding: 0 28%;
+  width: 100%;
+}
+
+.application .app-container .app-right .app-slider {
+  position: absolute;
+  padding: 1.5% 29.3% 0 29.3%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.application .app-container .app-right .app-slider .slick-list {
+  border-radius: 20px;
+}
+
+.application .app-container .app-right .app-slider .slick-list .carousel-item img {
+  width: 100%;
+}
+/*# sourceMappingURL=main.css.map */

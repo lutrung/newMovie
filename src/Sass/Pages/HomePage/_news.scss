@@ -1,0 +1,32 @@
+.news {
+  width: 940px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 120px;
+  .news-tabs {
+    .ant-tabs-nav {
+      &::before {
+        border-bottom: none !important;
+      }
+      .ant-tabs-nav-wrap {
+        justify-content: center;
+      }
+    }
+    .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+      font-size: 22px;
+      color: #fa5238;
+    }
+    .ant-tabs-ink-bar {
+      background: #fa5238;
+    }
+    .ant-tabs-tab-btn {
+      font-size: 20px;
+    }
+    .ant-tabs-tab {
+      &:hover {
+        color: #fa5238;
+      }
+    }
+  }
+}

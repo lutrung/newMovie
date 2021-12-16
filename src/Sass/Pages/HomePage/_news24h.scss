@@ -1,0 +1,58 @@
+.film24h {
+  .listItem {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    gap: 15px;
+    justify-content: space-between;
+    .film24h-item {
+      img {
+        border-radius: 5px;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .item-title {
+        cursor: pointer;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 20px;
+        font-size: 16px;
+        transition: all 0.2s;
+        margin-bottom: 5px;
+        &:hover {
+          color: #fb4226;
+        }
+      }
+      .item-detail {
+        font-size: 13px;
+        color: #4a4a4a;
+        padding: 0 5px 0 0;
+        margin: 0 !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+  .seeMore {
+    display: flex;
+    cursor: pointer;
+    margin: 20px auto;
+    background-color: transparent;
+    font-size: 14px;
+    color: #949494;
+    border: 1px solid #949494;
+    border-radius: 4px;
+    padding: 7px 25px;
+    transition: all 0.2s;
+    &:hover {
+      background-color: #fb4226;
+      border-color: #fb4226;
+      color: #fff !important;
+    }
+  }
+}

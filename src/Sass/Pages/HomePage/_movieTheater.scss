@@ -1,0 +1,104 @@
+.movieTheater {
+  width: 940px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 120px;
+  .movieTheater-container {
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+    .ant-tabs-tab {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .ant-tabs-tab-active {
+      background-color: #f0f0f0;
+    }
+    .ant-tabs-nav-operations {
+      display: none;
+    }
+  }
+  .ant-tabs-tabpane {
+    padding: 0 !important;
+    // -----------------------Cinema by code----------------------
+    .cinemaByCode {
+      .ant-tabs-nav-wrap {
+        height: 540px;
+      }
+      .ant-tabs-nav-operations {
+        display: none;
+      }
+      .cinemaByCode-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        width: 350px;
+        .cinemaByCode-logo {
+          width: 18%;
+        }
+        .cinemaByCode-info {
+          width: 80%;
+          text-align: left;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          .info-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: #000;
+            margin: 0;
+          }
+          .info-address {
+            font-size: 12px;
+            color: #949494;
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .info-detail {
+            color: #fb4226;
+            font-size: 12px;
+            margin: 0;
+          }
+        }
+      }
+      // -----------------------------------Time------------------
+      .showtimes {
+        height: 540px;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+          width: 5px;
+          background-color: #ddd;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: gray;
+        }
+        .item-info {
+          padding: 20px;
+          border-bottom: 1px solid #ccc;
+          .info-top {
+            display: flex;
+            img {
+              width: 70px;
+              height: 70px;
+              margin-right: 20px;
+            }
+            .top-name {
+              margin: 0;
+            }
+          }
+          .info-bottom {
+            padding: 10px 0 0;
+            .btn-time {
+              color: #fb4226;
+              border-color: #fb4226;
+              font-size: 15px;
+              margin: 0 10px 10px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
