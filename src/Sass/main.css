@@ -32,7 +32,7 @@ li {
   z-index: 999;
   width: 100%;
   height: 60px;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: white;
   -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
           box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   display: -webkit-box;
@@ -47,6 +47,10 @@ li {
   font-size: 16px;
 }
 
+.header .menu-mobile {
+  display: none;
+}
+
 .header .header-logo {
   width: 20%;
   margin: 0 0 0 20px;
@@ -55,6 +59,13 @@ li {
 .header .header-logo img {
   height: 50px;
   width: 50px;
+}
+
+.header .header-menu {
+  width: 60%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .header .header-menu,
@@ -76,6 +87,107 @@ li {
   width: 20%;
 }
 
+@media screen and (max-width: 1024px) {
+  .header {
+    background-color: white;
+    padding: 0 30px;
+  }
+  .header .header-menu {
+    display: none !important;
+  }
+  .header .header-logo,
+  .header .header-user {
+    width: 50%;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 737px) {
+  .header .header-user {
+    display: none !important;
+  }
+  .header .menu-mobile {
+    display: block;
+  }
+  .header .menu-mobile .menu-icon {
+    font-size: 30px;
+  }
+  .header .menu-mobile .menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.541);
+    display: none;
+    -webkit-animation: fadein linear 0.3s;
+            animation: fadein linear 0.3s;
+  }
+  .header .menu-mobile .nav__mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 70%;
+    max-width: 100%;
+    background-color: white;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    opacity: 0;
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+    padding: 20px;
+  }
+  .header .menu-mobile .nav__mobile .menu-login {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .header .menu-mobile .nav__mobile .menu-login .login-left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .header .menu-mobile .nav__mobile .menu-login .login-left .login-icon {
+    color: #bfbfbf;
+    font-size: 36px;
+    margin-right: 10px;
+  }
+  .header .menu-mobile .nav__mobile .menu-login .login-left .login-user {
+    font-size: 20px;
+  }
+  .header .menu-mobile .nav__mobile .menu-login .login-arrow {
+    color: #bfbfbf;
+    font-size: 25px;
+  }
+  .header .menu-mobile .nav__mobile .menu-list {
+    padding: 0;
+  }
+  .header .menu-mobile .nav__mobile .menu-list .menu-item {
+    padding: 20px 0;
+    font-size: 18px;
+  }
+  .header .menu-mobile .nav__input:checked ~ .menu-overlay {
+    display: block;
+    z-index: 9;
+  }
+  .header .menu-mobile .nav__input:checked ~ .nav__mobile {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .footer {
   background-color: #222;
   padding: 50px 0;
@@ -83,7 +195,7 @@ li {
 }
 
 .footer .footer-container {
-  width: 940px;
+  max-width: 940px;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -139,6 +251,35 @@ li {
 
 .footer .footer-container .footer-right img {
   width: 130px;
+}
+
+@media screen and (max-width: 1024px) {
+  .footer .footer-container {
+    padding: 20px 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer .footer-container {
+    padding: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer .footer-container .footer-left {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer .footer-container .footer-left .left-info {
+    margin: 10px 0;
+  }
+  .footer .footer-container .footer-right {
+    width: 100%;
+  }
 }
 
 .carousel {
@@ -198,9 +339,29 @@ li {
   background-color: unset;
 }
 
+@media screen and (max-width: 1024px) {
+  .carousel .slick-prev,
+  .carousel .slick-next {
+    display: none !important;
+  }
+  .carousel .slick-dots {
+    bottom: 15px;
+  }
+  .carousel .carousel-item {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carousel {
+    display: none;
+  }
+}
+
 .showTime {
+  padding-top: 60px !important;
   overflow: unset !important;
-  width: 940px;
+  max-width: 940px;
   margin: auto !important;
 }
 
@@ -371,8 +532,28 @@ li {
   left: 0;
 }
 
+@media screen and (max-width: 1024px) {
+  .showTime {
+    padding: 20px !important;
+  }
+  .showTime .slick-prev,
+  .showTime .slick-next {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .showTime {
+    padding: 70px 20px 20px !important;
+  }
+  .showTime .slick-prev,
+  .showTime .slick-next {
+    display: none !important;
+  }
+}
+
 .movieTheater {
-  width: 940px;
+  max-width: 940px;
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
@@ -380,72 +561,122 @@ li {
 }
 
 .movieTheater .movieTheater-container {
-  border: 1px solid #ebebeb;
+  width: 100%;
+  border: 1px solid #d1d1d1;
   border-radius: 5px;
-}
-
-.movieTheater .movieTheater-container .ant-tabs-tab {
-  padding: 0 !important;
-  margin: 0 !important;
-  opacity: 0.7;
-}
-
-.movieTheater .movieTheater-container .ant-tabs-tab-active {
-  opacity: 1;
-  background-color: #f0f0f0;
-}
-
-.movieTheater .movieTheater-container .ant-tabs-nav-operations {
-  display: none;
-}
-
-.movieTheater .ant-tabs-tabpane {
-  padding: 0 !important;
-}
-
-.movieTheater .ant-tabs-tabpane .cinemaByCode .ant-tabs-nav-wrap {
   height: 540px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .ant-tabs-nav-operations {
+.movieTheater .movieTheater-container .theater-logo {
+  height: 100%;
+  overflow-y: scroll;
+  width: 90px;
+}
+
+.movieTheater .movieTheater-container .theater-logo::-webkit-scrollbar {
   display: none;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .cinemaByCode-item {
+.movieTheater .movieTheater-container .theater-logo .logo-item {
+  position: relative;
+  cursor: pointer;
+  padding: 20px;
+  opacity: 0.5;
+}
+
+.movieTheater .movieTheater-container .theater-logo .logo-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: calc(100% - 40px);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.movieTheater .movieTheater-container .theater-logo .logo-item.active {
+  opacity: 1;
+  background-color: #efefef;
+}
+
+.movieTheater .movieTheater-container .theater-cluster {
+  height: 100%;
+  overflow-y: scroll;
+  width: 40%;
+  border-left: 1px solid #d1d1d1;
+  border-right: 1px solid #d1d1d1;
+}
+
+.movieTheater .movieTheater-container .theater-cluster::-webkit-scrollbar {
+  display: none;
+  width: 3px;
+  background-color: #ddd;
+}
+
+.movieTheater .movieTheater-container .theater-cluster::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0;
+}
+
+.movieTheater .movieTheater-container .theater-cluster:hover::-webkit-scrollbar {
+  display: block;
+}
+
+.movieTheater .movieTheater-container .theater-cluster .cinemaByCode-item {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 20px;
-  width: 350px;
+  padding: 16px 20px;
+  cursor: pointer;
+  opacity: 0.5;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .cinemaByCode-item:hover {
+.movieTheater .movieTheater-container .theater-cluster .cinemaByCode-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: calc(100% - 40px);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.movieTheater .movieTheater-container .theater-cluster .cinemaByCode-item:hover {
   background-color: #f0f0f0;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .cinemaByCode-item .cinemaByCode-logo {
-  width: 18%;
+.movieTheater .movieTheater-container .theater-cluster .cinemaByCode-item .cinemaByCode-logo {
+  width: 50px;
+  height: 50px;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .cinemaByCode-item .cinemaByCode-info {
-  width: 80%;
+.movieTheater .movieTheater-container .theater-cluster .cinemaByCode-item .cinemaByCode-info {
+  width: calc(100% - 60px);
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .cinemaByCode-item .cinemaByCode-info .info-name {
+.movieTheater .movieTheater-container .theater-cluster .cinemaByCode-item .cinemaByCode-info .info-name {
   font-size: 14px;
   font-weight: bold;
   color: #000;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .cinemaByCode-item .cinemaByCode-info .info-address {
+.movieTheater .movieTheater-container .theater-cluster .cinemaByCode-item .cinemaByCode-info .info-address {
   font-size: 12px;
   color: #949494;
   margin: 0;
@@ -454,60 +685,125 @@ li {
   white-space: nowrap;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .cinemaByCode-item .cinemaByCode-info .info-detail {
+.movieTheater .movieTheater-container .theater-cluster .cinemaByCode-item .cinemaByCode-info .info-detail {
   color: #fb4226;
   font-size: 12px;
   margin: 0;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes {
-  height: 540px;
+.movieTheater .movieTheater-container .theater-cluster .cinemaByCode-item.active {
+  opacity: 1;
+  background-color: #efefef;
+}
+
+.movieTheater .movieTheater-container .theater-showtime {
+  width: calc(100% - 40% - 90px);
+  height: 100%;
   overflow-y: scroll;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes::-webkit-scrollbar {
-  width: 5px;
+.movieTheater .movieTheater-container .theater-showtime::-webkit-scrollbar {
+  display: none;
+  width: 3px;
   background-color: #ddd;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes::-webkit-scrollbar-thumb {
-  background-color: gray;
+.movieTheater .movieTheater-container .theater-showtime::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes .item-info {
+.movieTheater .movieTheater-container .theater-showtime:hover::-webkit-scrollbar {
+  display: block;
+}
+
+.movieTheater .movieTheater-container .theater-showtime .warning {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 25px;
+  height: 100%;
+}
+
+.movieTheater .movieTheater-container .theater-showtime .item-info {
   margin: 20px;
   border-bottom: 1px solid #ccc;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes .item-info .info-top {
+.movieTheater .movieTheater-container .theater-showtime .item-info .info-top {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes .item-info .info-top img {
+.movieTheater .movieTheater-container .theater-showtime .item-info .info-top img {
   width: 70px;
   height: 70px;
   margin-right: 20px;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes .item-info .info-top .top-name {
+.movieTheater .movieTheater-container .theater-showtime .item-info .info-top .top-name {
   margin: 0;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes .item-info .info-bottom {
+.movieTheater .movieTheater-container .theater-showtime .item-info .info-bottom {
   padding: 10px 0;
 }
 
-.movieTheater .ant-tabs-tabpane .cinemaByCode .showtimes .item-info .info-bottom .btn-time {
+.movieTheater .movieTheater-container .theater-showtime .item-info .info-bottom .btn-time {
   color: #fb4226;
   border-color: #fb4226;
   font-size: 15px;
   margin: 0 10px 10px 0;
 }
 
+.movieTheater .movieTheater-container .theater-showtime .item-info .info-bottom .btn-time:hover {
+  color: white;
+  background-color: #fb4226;
+}
+
+@media screen and (max-width: 1024px) {
+  .movieTheater {
+    padding: 50px 20px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movieTheater .movieTheater-container {
+    height: 750px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .movieTheater .movieTheater-container .theater-logo {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow-x: scroll;
+    height: unset;
+    min-height: 90px;
+  }
+  .movieTheater .movieTheater-container .theater-cluster {
+    width: 100%;
+    border-left: unset;
+    border-right: unset;
+    border-top: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+  }
+  .movieTheater .movieTheater-container .theater-showtime {
+    width: 100%;
+  }
+}
+
 .news {
-  width: 940px;
+  max-width: 940px;
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
@@ -539,6 +835,18 @@ li {
 
 .news .news-tabs .ant-tabs-tab:hover {
   color: #fa5238;
+}
+
+@media screen and (max-width: 1024px) {
+  .news {
+    padding: 50px 20px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .news .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    font-size: 15px !important;
+  }
 }
 
 .film24h .listItem {
@@ -618,7 +926,7 @@ li {
 }
 
 .application .app-container {
-  width: 940px;
+  max-width: 940px;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -677,5 +985,31 @@ li {
 
 .application .app-container .app-right .app-slider .slick-list .carousel-item img {
   width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .application .app-container {
+    padding: 0px 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .application {
+    padding: 20px;
+  }
+  .application .app-container {
+    padding: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .application .app-container .app-left,
+  .application .app-container .app-right {
+    width: 100%;
+  }
+  .application .app-container .app-left {
+    margin-bottom: 20px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

@@ -31,6 +31,7 @@ export default function Carousel() {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
+
     };
     return (
         <div className='carousel'>

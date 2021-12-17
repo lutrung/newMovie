@@ -30,9 +30,6 @@
       color: white;
     }
   }
-  .slick-slider {
-    // height: 700px;
-  }
   .carousel-item {
     position: relative;
     .carousel-play {
@@ -46,5 +43,24 @@
         background-color: unset;
       }
     }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .carousel {
+    .slick-prev,
+    .slick-next {
+      display: none !important;
+    }
+    .slick-dots {
+      bottom: 15px;
+    }
+    .carousel-item {
+      height: 300px;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .carousel {
+    display: none;
   }
 }

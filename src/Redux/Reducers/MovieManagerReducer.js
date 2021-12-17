@@ -1,12 +1,12 @@
-import { GET_BANNER_LIST, GET_CINEMA_BY_CODE, GET_CINEMA_SYSTEM, GET_MOVIES_LIST, GET_SHOW_SCHEDULE } from "../Const/MovieManagerConst";
+import { CHANGE_CODE_CINEMA, GET_BANNER_LIST, GET_CINEMA_BY_CODE, GET_CINEMA_SYSTEM, GET_MOVIES_LIST, GET_SHOW_SCHEDULE } from "../Const/MovieManagerConst";
 
 const stateDefault = {
     bannerList: [],
     moviesList: [],
     cinemaSystem: [],
     cinemaByCode: [],
-    showTimes: []
-
+    showTimes: [],
+    codeCinema: 'BHDStar'
 }
 const MovieManagerReducer = (state = stateDefault, action) => {
     switch (action.type) {
@@ -30,7 +30,12 @@ const MovieManagerReducer = (state = stateDefault, action) => {
             state.showTimes = action.showTimes
             return { ...state }
         }
+        case CHANGE_CODE_CINEMA: {
+            state.codeCinema = action.newCode
+            return { ...state }
+        }
         default: return { ...state }
     }
 }
+
 export default MovieManagerReducer;

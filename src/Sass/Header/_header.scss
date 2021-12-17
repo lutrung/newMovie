@@ -4,12 +4,15 @@
   z-index: 999;
   width: 100%;
   height: 60px;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
+  .menu-mobile {
+    display: none;
+  }
   .header-logo {
     width: 20%;
     margin: 0 0 0 20px;
@@ -17,6 +20,10 @@
       height: 50px;
       width: 50px;
     }
+  }
+  .header-menu {
+    width: 60%;
+    justify-content: center;
   }
   .header-menu,
   .header-user {
@@ -28,5 +35,92 @@
   .header-user {
     justify-content: flex-end;
     width: 20%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .header {
+    background-color: white;
+    padding: 0 30px;
+    .header-menu {
+      display: none !important;
+    }
+    .header-logo,
+    .header-user {
+      width: 50%;
+      margin: 0;
+    }
+  }
+}
+@media screen and (max-width: 737px) {
+  .header {
+    .header-user {
+      display: none !important;
+    }
+    .menu-mobile {
+      display: block;
+      .menu-icon {
+        font-size: 30px;
+      }
+      .menu-overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.541);
+        display: none;
+        animation: fadein linear 0.3s;
+      }
+      .nav__mobile {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        width: 70%;
+        max-width: 100%;
+        background-color: white;
+        transform: translateX(100%);
+        opacity: 0;
+        transition: all linear 0.5s;
+        padding: 20px;
+        .menu-login {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .login-left {
+            display: flex;
+            align-items: center;
+            .login-icon {
+              color: #bfbfbf;
+              font-size: 36px;
+              margin-right: 10px;
+            }
+            .login-user {
+              font-size: 20px;
+            }
+          }
+          .login-arrow {
+            color: #bfbfbf;
+            font-size: 25px;
+          }
+        }
+        .menu-list {
+          padding: 0;
+          .menu-item {
+            padding: 20px 0;
+            font-size: 18px;
+          }
+        }
+      }
+      .nav__input:checked ~ .menu-overlay {
+        display: block;
+        z-index: 9;
+      }
+      .nav__input:checked ~ .nav__mobile {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
   }
 }

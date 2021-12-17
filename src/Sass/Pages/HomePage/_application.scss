@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   .app-container {
-    width: 940px;
+    max-width: 940px;
     margin: auto;
     display: flex;
     align-items: center;
@@ -50,6 +50,29 @@
             }
           }
         }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .application {
+    .app-container {
+      padding: 0px 50px;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .application {
+    padding: 20px;
+    .app-container {
+      padding: 0;
+      flex-direction: column;
+      .app-left,
+      .app-right {
+        width: 100%;
+      }
+      .app-left {
+        margin-bottom: 20px;
       }
     }
   }

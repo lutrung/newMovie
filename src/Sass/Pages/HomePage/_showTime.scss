@@ -1,6 +1,7 @@
 .showTime {
+  padding-top: 60px !important;
   overflow: unset !important;
-  width: 940px;
+  max-width: 940px;
   margin: auto !important;
   .ant-tabs-nav {
     &::before {
@@ -148,6 +149,24 @@
           left: 0;
         }
       }
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .showTime {
+    padding: 20px !important;
+    .slick-prev,
+    .slick-next {
+      display: none !important;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .showTime {
+    padding: 70px 20px 20px !important;
+    .slick-prev,
+    .slick-next {
+      display: none !important;
     }
   }
 }
