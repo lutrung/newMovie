@@ -14,7 +14,8 @@ function Info(props) {
     //     }
     // }, [movieCode])
     return (
-        <div className='movieDetails' style={{ backgroundImage: `url(${background})` }}>
+        <div className='movieDetails' >
+            <div className='movieDetails-blur' style={{ backgroundImage: `url(${background})` }}></div>
             <div className='movieDetails-container'>
                 <div className='movieDetails-left'>
                     <div className='left-img' style={{ backgroundImage: `url(${image})` }}></div>

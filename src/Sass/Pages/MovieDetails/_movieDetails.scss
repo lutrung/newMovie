@@ -1,10 +1,22 @@
 .movieDetails {
   position: relative;
   margin-top: 60px;
-  width: 100vw;
   height: 100vh;
   background-size: contain;
   background-position: center;
+  .movieDetails-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-size: contain;
+    background-position: center;
+    filter: blur(7px);
+    overflow: hidden;
+    margin: -11px 0 -5px -10px;
+    width: calc(100% + 5px);
+  }
   .movieDetails-container {
     position: absolute;
     top: 50%;
