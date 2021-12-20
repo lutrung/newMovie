@@ -57,7 +57,7 @@ export default function MovieTheater() {
         dispatch(await getShowSchedule(codeCinema))
     }, [])
     return (
-        <div id='movieTheater' className='movieTheater' style={{ backgroundImage: `url(${background})` }}>
+        <div id='cumrap' className='movieTheater' style={{ backgroundImage: `url(${background})` }}>
             <div className='movieTheater-container'>
                 <div className='theater-logo'>
                     {cinemaSystem?.map((item, index) => {
@@ -89,8 +89,8 @@ export default function MovieTheater() {
                                 {item.lstCumRap?.map((cinema, cinemaIndex) => {
                                     if (cinema.maCumRap === showTimeByTheater) {
                                         return <Fragment key={cinemaIndex}>
-                                            {cinema.danhSachPhim?.slice(0, 10).map((movieInfo, index) => {
-                                                return <div key={index} className='item-info'>
+                                            {cinema.danhSachPhim?.slice(0, 10).map((movieInfo, indeMovieInfo) => {
+                                                return <div key={indeMovieInfo} className='item-info'>
                                                     <div className='info-top'>
                                                         <img src={movieInfo.hinhAnh} />
                                                         <div>
@@ -112,9 +112,8 @@ export default function MovieTheater() {
                                 })}
                             </Fragment>
                         } else {
-                            return <div className='warning' >Vui lòng chọn rạp !</div>
+                            return <div key={index} className='warning' >Vui lòng chọn rạp !</div>
                         }
-
                     })}
                 </div>
             </div>

@@ -1,21 +1,50 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import logo from '../../Assets/Images/logo.png'
 import MenuIcon from '@mui/icons-material/Menu';
+import { useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
+import { NavLink } from 'react-router-dom';
 export default function Header() {
+    const userSignIn = useSelector(state => state.UserManagerReducer.userSignIn)
+    const SignOut = () => {
+        Swal.fire({
+            title: 'Bạn có chắc muốn đăng xuất?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Có',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Hủy'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.clear();
+                window.location.href = '/';
+            }
+        })
+    }
     return (
         <div className='header'>
-            <a href='#' className='header-logo'>
+            <a href='/' className='header-logo'>
                 <img src={logo} />
             </a>
             <ul className='header-menu'>
-                <li className='header-item'><a href='#showTime'>Lịch chiếu</a></li>
-                <li className='header-item'><a href='#movieTheater'>Cụm rạp</a></li>
-                <li className='header-item'><a href='#news'>Tin tức</a></li>
-                <li className='header-item'><a href='#application'>Ứng dụng</a></li>
+                <li className='header-item'><a href='#lichchieu'>Lịch chiếu</a></li>
+                <li className='header-item'><a href='#cumrap'>Cụm rạp</a></li>
+                <li className='header-item'><a href='#tintuc'>Tin tức</a></li>
+                <li className='header-item'><a href='#ungdung'>Ứng dụng</a></li>
             </ul>
             <ul className='header-user'>
-                <li className='header-item'><a href='#'>Đăng nhập</a></li>
-                <li className='header-item'><a href='#'>Đăng ký</a></li>
+                {userSignIn.hoTen ? <Fragment>
+                    <img className='user-logo' src='https://picsum.photos/35/35' alt='' style={{ borderRadius: '50%' }} />
+                    <li className='header-item header-item-signin'>Hello {userSignIn.hoTen}</li>
+                    <li className='header-item' onClick={() => SignOut()}>Đăng Xuất</li>
+                </Fragment>
+                    :
+                    <Fragment>
+                        <i className="fa fa-user-circle user-logo"></i>
+                        <li className='header-item'><NavLink to='/dangnhap'>Đăng nhập</NavLink></li>
+                        <li className='header-item'><NavLink to='/dangky'>Đăng ký</NavLink></li>
+                    </Fragment>}
             </ul>
             <div className='menu-mobile'>
                 <label htmlFor='nav-mobile-input' >
@@ -26,8 +55,12 @@ export default function Header() {
                 <nav className='nav__mobile'>
                     <div className='menu-login'>
                         <div className='login-left'>
-                            <i className="fa fa-user-circle login-icon"></i>
-                            <a href='/#' className='login-user'>Đăng nhập</a>
+                            {userSignIn.hoTen ? <Fragment>
+                                <img className='user-logo' src='https://picsum.photos/35/35' alt='' style={{ borderRadius: '50%' }} />
+                                <div className='user-name'>Hello {userSignIn.hoTen}</div>
+                            </Fragment> : <Fragment>
+                                <i className="fa fa-user-circle login-icon"></i>
+                                <NavLink to='/dangnhap' className='login-user'>Đăng nhập</NavLink></Fragment>}
                         </div>
                         <label htmlFor='nav-mobile-input'><i className="fa fa-angle-right login-arrow"></i></label>
 

@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import React, { Fragment, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import playIcon from '../../../Assets/Images/playIcon.png'
 
 const style = {
@@ -43,9 +44,9 @@ export default function ShowTimeItem({ item, showing }) {
                         <span className='item-age'>C13 </span>
                         {item.tenPhim}
                     </div>
-                        <div className='item-buyTickets'>
+                        <NavLink className='item-buyTickets' to={'/chitietphim/' + item.maPhim}>
                             Mua vé
-                        </div></Fragment> : <div className='item-name2' title={item.tenPhim}>
+                        </NavLink></Fragment> : <div className='item-name2' title={item.tenPhim}>
                         <span className='item-age'>C13 </span>
                         {item.tenPhim}
                     </div>}

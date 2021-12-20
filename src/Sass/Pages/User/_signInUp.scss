@@ -1,0 +1,120 @@
+.signInUp {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .signInUp_form {
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    width: 400px;
+    .signInUp_form-logo {
+      display: flex;
+      margin: 0 auto;
+      width: 50px;
+      height: 50px;
+    }
+    .signInUp_form-title {
+      text-align: center;
+      font-size: 30px;
+      font-weight: normal;
+      color: black;
+      margin-bottom: 20px;
+    }
+    .signInUp_form-input {
+      margin-bottom: 20px;
+      .input-container {
+        display: flex;
+        border: 1px solid rgba(187, 185, 185, 0.233);
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background-color: #f5f6f7;
+        padding: 10px 15px;
+        i {
+          color: #acacac;
+        }
+        .form-control {
+          background: none;
+          outline: none;
+          border: none;
+          font-size: 15px;
+          font-weight: normal;
+          &:focus {
+            box-shadow: none;
+          }
+        }
+      }
+      .error-message {
+        color: red;
+        font-style: italic;
+      }
+    }
+    .btn_signInUp {
+      width: 100%;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 10px;
+      margin-bottom: 20px;
+      color: #fff;
+      cursor: pointer;
+      text-align: center;
+      border: none;
+      background-size: 300% 100%;
+      border-radius: 50px;
+      -moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      -webkit-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+      background-image: linear-gradient(
+        to right,
+        #6253e1,
+        #852d91,
+        #a3a1ff,
+        #f24645
+      );
+      box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+      &:hover {
+        background-position: 100% 0;
+        -moz-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+      }
+    }
+    .signInUp_form-note {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      text-align: right;
+      p {
+        margin: 0;
+        font-size: 12px;
+      }
+      .signUp {
+        color: #1890ff !important;
+        font-size: 12px;
+        &:hover {
+          color: black;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  .signInUp {
+    .signInUp_form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      border-radius: 0;
+    }
+  }
+}

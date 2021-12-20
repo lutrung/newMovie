@@ -26,6 +26,71 @@ li {
   margin-bottom: 0 !important;
 }
 
+.sk-cube-grid {
+  margin: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+}
+
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  background-color: #fa5238;
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -73,11 +138,27 @@ li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .header-menu .user-logo,
+.header .header-user .user-logo {
+  font-size: 30px;
+  color: gray;
+  margin-right: 10px;
 }
 
 .header .header-menu .header-item,
 .header .header-user .header-item {
+  cursor: pointer;
   margin: 0 20px 0 0;
+}
+
+.header .header-menu .header-item-signin,
+.header .header-user .header-item-signin {
+  color: red;
 }
 
 .header .header-user {
@@ -157,6 +238,12 @@ li {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  .header .menu-mobile .nav__mobile .menu-login .login-left .user-logo {
+    margin-right: 10px;
+  }
+  .header .menu-mobile .nav__mobile .menu-login .login-left .user-name {
+    color: red;
   }
   .header .menu-mobile .nav__mobile .menu-login .login-left .login-icon {
     color: #bfbfbf;
@@ -504,7 +591,7 @@ li {
   width: 100%;
   left: -200%;
   border-radius: 4px;
-  color: #fff;
+  color: #fff !important;
   font-size: 18px;
   padding: 10px;
   text-align: center;
@@ -1011,5 +1098,248 @@ li {
   .application .app-container .app-left {
     margin-bottom: 20px;
   }
+}
+
+.signInUp {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.signInUp .signInUp_form {
+  background-color: white;
+  padding: 30px 20px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.signInUp .signInUp_form .signInUp_form-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+}
+
+.signInUp .signInUp_form .signInUp_form-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: normal;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.signInUp .signInUp_form .signInUp_form-input {
+  margin-bottom: 20px;
+}
+
+.signInUp .signInUp_form .signInUp_form-input .input-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid rgba(187, 185, 185, 0.233);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 20px;
+  background-color: #f5f6f7;
+  padding: 10px 15px;
+}
+
+.signInUp .signInUp_form .signInUp_form-input .input-container i {
+  color: #acacac;
+}
+
+.signInUp .signInUp_form .signInUp_form-input .input-container .form-control {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.signInUp .signInUp_form .signInUp_form-input .input-container .form-control:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.signInUp .signInUp_form .signInUp_form-input .error-message {
+  color: red;
+  font-style: italic;
+}
+
+.signInUp .signInUp_form .btn_signInUp {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+  margin-bottom: 20px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: -webkit-gradient(linear, left top, right top, from(#6253e1), color-stop(#852d91), color-stop(#a3a1ff), to(#f24645));
+  background-image: linear-gradient(to right, #6253e1, #852d91, #a3a1ff, #f24645);
+  -webkit-box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+          box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+}
+
+.signInUp .signInUp_form .btn_signInUp:hover {
+  background-position: 100% 0;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.signInUp .signInUp_form .signInUp_form-note {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-align: right;
+}
+
+.signInUp .signInUp_form .signInUp_form-note p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.signInUp .signInUp_form .signInUp_form-note .signUp {
+  color: #1890ff !important;
+  font-size: 12px;
+}
+
+.signInUp .signInUp_form .signInUp_form-note .signUp:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 576px) {
+  .signInUp .signInUp_form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+.movieDetails {
+  position: relative;
+  margin-top: 60px;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
+  background-position: center;
+}
+
+.movieDetails .movieDetails-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-width: 940px;
+  width: 940px;
+  padding: 10px;
+}
+
+.movieDetails .movieDetails-container .movieDetails-left {
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.movieDetails .movieDetails-container .movieDetails-left .left-img {
+  height: 320px;
+  width: 38%;
+  border-radius: 4px;
+  background-position: center, 0 0;
+  background-size: cover;
+  background-repeat: no-repeat, repeat-y;
+}
+
+.movieDetails .movieDetails-container .movieDetails-left .left-info {
+  width: 60%;
+}
+
+.movieDetails .movieDetails-container .movieDetails-left .left-info .info-date,
+.movieDetails .movieDetails-container .movieDetails-left .left-info .info-times {
+  color: #e9e9e9;
+  font-size: 14px;
+  margin: 0;
+}
+
+.movieDetails .movieDetails-container .movieDetails-left .left-info .info-name {
+  color: #e9e9e9;
+  font-size: 24px;
+}
+
+.movieDetails .movieDetails-container .movieDetails-left .left-info .info-name p {
+  margin: 0;
+  display: inline;
+  margin-right: 6px;
+  margin-top: 6px;
+  background-color: #fb4226;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 0 5px;
+  display: inline-block;
+  text-align: center;
+  min-width: 33px;
+}
+
+.movieDetails .movieDetails-container .movieDetails-left .left-info .info-btn {
+  font-size: 16px;
+  border-radius: 4px;
+  text-align: center;
+  background: 0 0;
+  padding: 7px 25px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  background-color: #fb4226;
+  border: none;
+  color: #fff !important;
 }
 /*# sourceMappingURL=main.css.map */

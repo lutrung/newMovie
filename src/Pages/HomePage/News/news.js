@@ -6,7 +6,7 @@ import Film24h from './film24h';
 const { TabPane } = Tabs;
 export default function News() {
     return (
-        <div id='news' className='news' style={{ backgroundImage: `url(${background})` }}>
+        <div id='tintuc' className='news' style={{ backgroundImage: `url(${background})` }}>
             <Tabs className='news-tabs' defaultActiveKey="1" >
                 <TabPane tab="Điện Ảnh 24h" key="1">
                     <Film24h />

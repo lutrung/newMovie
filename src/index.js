@@ -8,10 +8,9 @@ import { rootReducer } from './Redux/Reducers/rootReducer';
 import { Provider } from 'react-redux';
 import reduxThunk from 'redux-thunk'
 import { applyMiddleware, createStore } from 'redux';
-import { createBrowserHistory } from "history";
 import { BrowserRouter as Router } from 'react-router-dom';
+import { history } from "./Util/history";
 
-const history = createBrowserHistory();
 const store = createStore(rootReducer, applyMiddleware(reduxThunk));
 ReactDOM.render(
   <Router history={history}>

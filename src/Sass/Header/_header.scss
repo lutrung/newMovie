@@ -28,8 +28,18 @@
   .header-menu,
   .header-user {
     display: flex;
+    align-items: center;
+    .user-logo {
+      font-size: 30px;
+      color: gray;
+      margin-right: 10px;
+    }
     .header-item {
+      cursor: pointer;
       margin: 0 20px 0 0;
+    }
+    .header-item-signin {
+      color: red;
     }
   }
   .header-user {
@@ -91,6 +101,12 @@
           .login-left {
             display: flex;
             align-items: center;
+            .user-logo {
+              margin-right: 10px;
+            }
+            .user-name {
+              color: red;
+            }
             .login-icon {
               color: #bfbfbf;
               font-size: 36px;

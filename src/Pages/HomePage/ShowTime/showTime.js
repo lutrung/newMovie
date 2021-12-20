@@ -40,7 +40,7 @@ export default function ShowTime() {
     };
     const moviesList = useSelector(state => state.MovieManagerReducer.moviesList)
     return (
-        <Tabs id='showTime' className='showTime' defaultActiveKey="1" >
+        <Tabs id='lichchieu' className='showTime' defaultActiveKey="1" >
             <TabPane tab="Đang chiếu" key="1">
                 <Slider {...settings}>
                     {moviesList.slice(0, 14).map((item, index) => {

@@ -1,4 +1,4 @@
-import { CHANGE_CODE_CINEMA, GET_BANNER_LIST, GET_CINEMA_BY_CODE, GET_CINEMA_SYSTEM, GET_MOVIES_LIST, GET_SHOW_SCHEDULE } from "../Const/MovieManagerConst";
+import { CHANGE_CODE_CINEMA, GET_BANNER_LIST, GET_CINEMA_BY_CODE, GET_CINEMA_SYSTEM, GET_MOVIES_LIST, GET_MOVIE_DETAILS, GET_SHOW_SCHEDULE } from "../Const/MovieManagerConst";
 
 const stateDefault = {
     bannerList: [],
@@ -6,7 +6,8 @@ const stateDefault = {
     cinemaSystem: [],
     cinemaByCode: [],
     showTimes: [],
-    codeCinema: 'BHDStar'
+    codeCinema: 'BHDStar',
+    movieDetails: {}
 }
 const MovieManagerReducer = (state = stateDefault, action) => {
     switch (action.type) {
@@ -32,6 +33,10 @@ const MovieManagerReducer = (state = stateDefault, action) => {
         }
         case CHANGE_CODE_CINEMA: {
             state.codeCinema = action.newCode
+            return { ...state }
+        }
+        case GET_MOVIE_DETAILS: {
+            state.movieDetails = action.movieDetails
             return { ...state }
         }
         default: return { ...state }

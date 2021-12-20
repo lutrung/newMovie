@@ -35,7 +35,7 @@ export default function Application() {
         autoplaySpeed: 2000,
     };
     return (
-        <div id='application' className='application' style={{ background: `url(${background})` }}>
+        <div id='ungdung' className='application' style={{ background: `url(${background})` }}>
             <div className='app-container'>
                 <div className='app-left'>
                     <h2>Ứng dụng tiện lợi dành cho người yêu điện ảnh</h2>
