@@ -10,9 +10,10 @@ export default function ShowTime() {
         rows: 2,
         dots: false,
         infinite: true,
-        speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 3,
+        slidesToScroll: 2,
+        autoplay: true,
+        autoplaySpeed: 2000,
         responsive: [
             {
                 breakpoint: 1024,

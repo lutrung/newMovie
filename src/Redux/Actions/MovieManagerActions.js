@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import { CHANGE_CODE_CINEMA, GET_BANNER_LIST, GET_CINEMA_BY_CODE, GET_CINEMA_SYSTEM, GET_MOVIES_LIST, GET_MOVIE_DETAILS, GET_SHOW_SCHEDULE } from '../Const/MovieManagerConst'
+import { CHANGE_CODE_CINEMA, GET_BANNER_LIST, GET_CINEMA_BY_CODE, GET_CINEMA_SYSTEM, GET_MOVIES_LIST, GET_MOVIE_DETAILS, GET_SHOW_SCHEDULE, GET_TICKET_ROOM } from '../Const/MovieManagerConst'
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAxNSIsIkhldEhhblN0cmluZyI6IjIwLzA2LzIwMjIiLCJIZXRIYW5UaW1lIjoiMTY1NTY4MzIwMDAwMCIsIm5iZiI6MTYyNjI4MjAwMCwiZXhwIjoxNjU1ODMwODAwfQ.p47FFJpArherjwlM71xTzdulAQIW37pR6fRGD3t3Ji0'
 export const getBannerList = () => {
     return async (dispatch) => {
@@ -108,7 +108,7 @@ export const getMovieDetails = (movieCode) => {
     return async (dispatch) => {
         try {
             await Axios({
-                url: `https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${movieCode}`,
+                url: `https://movienew.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${movieCode}`,
                 method: 'GET',
                 headers: {
                     TokenCybersoft: token
@@ -122,6 +122,27 @@ export const getMovieDetails = (movieCode) => {
         } catch (error) {
             console.log('Thất bại', error.response)
 
+        }
+    }
+}
+export const getTicketRoom = (showtimeCode) => {
+    return async (dispatch) => {
+        try {
+            await Axios({
+                url: `https://movienew.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${showtimeCode}`,
+                method: 'GET',
+                headers: {
+                    TokenCybersoft: token
+                }
+            }).then((result) => {
+                dispatch({
+                    type: GET_TICKET_ROOM,
+                    ticketRoom: result.data.content
+                })
+            })
+
+        } catch (error) {
+            console.log('Thất bại', error.response)
         }
     }
 }

@@ -10,6 +10,7 @@ import ShowTime from './ShowTime/showTime'
 export default function HomePage() {
     const dispatch = useDispatch()
     useEffect(async () => {
+        window.scrollTo(0, 0)
         dispatch(await getMovieList())
         dispatch(await getBannerList())
     }, [])

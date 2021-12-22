@@ -2,6 +2,7 @@ import Button from '@mui/material/Button';
 import moment from 'moment';
 import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import background from '../../../Assets/Images/back-news.png';
 import { getCinemaSystem, getShowSchedule, getTheTheaterClusterByCode } from '../../../Redux/Actions/MovieManagerActions';
 export default function MovieTheater() {
@@ -99,9 +100,9 @@ export default function MovieTheater() {
                                                         </div>
                                                     </div>
                                                     <div className='info-bottom'>
-                                                        <h3>Suất chiếu:</h3>
+                                                        <h4>Suất chiếu:</h4>
                                                         {movieInfo.lstLichChieuTheoPhim?.slice(0, 7).map((time, index) => {
-                                                            return <Button key={index} className='btn-time' variant="outlined">{moment(time.ngayChieuGioChieu).format('hh:mm')}</Button>
+                                                            return <NavLink to='/phongve' key={index} className='btn-time' variant="outlined">{moment(time.ngayChieuGioChieu).format('hh:mm')}</NavLink>
 
                                                         })}
                                                     </div>

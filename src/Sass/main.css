@@ -690,6 +690,12 @@ li {
   background-color: #efefef;
 }
 
+.movieTheater .movieTheater-container .theater-logo .logo-item.active::after {
+  border-bottom: 2px solid #fb4226;
+  -webkit-box-shadow: 0 -3px 10px 0 #fb4226;
+          box-shadow: 0 -3px 10px 0 #fb4226;
+}
+
 .movieTheater .movieTheater-container .theater-cluster {
   height: 100%;
   overflow-y: scroll;
@@ -783,6 +789,12 @@ li {
   background-color: #efefef;
 }
 
+.movieTheater .movieTheater-container .theater-cluster .cinemaByCode-item.active::after {
+  border-bottom: 2px solid #fb4226;
+  -webkit-box-shadow: 0 -3px 10px 0 #fb4226;
+          box-shadow: 0 -3px 10px 0 #fb4226;
+}
+
 .movieTheater .movieTheater-container .theater-showtime {
   width: calc(100% - 40% - 90px);
   height: 100%;
@@ -843,14 +855,17 @@ li {
 }
 
 .movieTheater .movieTheater-container .theater-showtime .item-info .info-bottom .btn-time {
-  color: #fb4226;
-  border-color: #fb4226;
+  display: inline-block;
+  color: #fb4226 !important;
+  border: 1px solid #fb4226;
   font-size: 15px;
   margin: 0 10px 10px 0;
+  padding: 5px 17px;
+  border-radius: 4px;
 }
 
 .movieTheater .movieTheater-container .theater-showtime .item-info .info-bottom .btn-time:hover {
-  color: white;
+  color: white !important;
   background-color: #fb4226;
 }
 
@@ -1255,15 +1270,14 @@ li {
   }
 }
 
-.movieDetails {
+.movieDetails .movieDetailsInfo {
   position: relative;
   margin-top: 60px;
   height: 100vh;
-  background-size: contain;
-  background-position: center;
+  background-color: black;
 }
 
-.movieDetails .movieDetails-blur {
+.movieDetails .movieDetailsInfo .movieDetailsInfo-blur {
   position: absolute;
   top: 0;
   left: 0;
@@ -1271,26 +1285,20 @@ li {
   right: 0;
   background-size: contain;
   background-position: center;
-  -webkit-filter: blur(7px);
-          filter: blur(7px);
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
   overflow: hidden;
-  margin: -11px 0 -5px -10px;
-  width: calc(100% + 5px);
 }
 
-.movieDetails .movieDetails-container {
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  max-width: 940px;
+  -webkit-transform: translate(-50%, -40%);
+          transform: translate(-50%, -40%);
   width: 940px;
+  height: 100%;
   padding: 10px;
-}
-
-.movieDetails .movieDetails-container .movieDetails-left {
-  width: 60%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1302,36 +1310,48 @@ li {
           justify-content: space-between;
 }
 
-.movieDetails .movieDetails-container .movieDetails-left .left-img {
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-left {
+  height: 100%;
+  width: 65%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-left .left-img {
   height: 320px;
   width: 38%;
-  border-radius: 4px;
+  border-radius: 5px;
   background-position: center, 0 0;
   background-size: cover;
   background-repeat: no-repeat, repeat-y;
 }
 
-.movieDetails .movieDetails-container .movieDetails-left .left-info {
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-left .left-info {
   width: 60%;
 }
 
-.movieDetails .movieDetails-container .movieDetails-left .left-info .info-date,
-.movieDetails .movieDetails-container .movieDetails-left .left-info .info-times {
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-left .left-info .info-date,
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-left .left-info .info-times {
   color: #e9e9e9;
   font-size: 14px;
   margin: 0;
 }
 
-.movieDetails .movieDetails-container .movieDetails-left .left-info .info-name {
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-left .left-info .info-name {
   color: #e9e9e9;
   font-size: 24px;
 }
 
-.movieDetails .movieDetails-container .movieDetails-left .left-info .info-name p {
-  margin: 0;
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-left .left-info .info-name p {
+  margin: 6px 6px 0 0;
   display: inline;
-  margin-right: 6px;
-  margin-top: 6px;
   background-color: #fb4226;
   color: #fff;
   font-size: 16px;
@@ -1342,7 +1362,9 @@ li {
   min-width: 33px;
 }
 
-.movieDetails .movieDetails-container .movieDetails-left .left-info .info-btn {
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-left .left-info .info-btn {
+  display: inline-block;
+  margin-top: 10px;
   font-size: 16px;
   border-radius: 4px;
   text-align: center;
@@ -1350,10 +1372,421 @@ li {
   padding: 7px 25px;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  margin-top: 25px;
-  margin-bottom: 20px;
   background-color: #fb4226;
   border: none;
   color: #fff !important;
+}
+
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-right {
+  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-right .right-circular {
+  width: 40%;
+}
+
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-right .right-circular .CircularProgressbar-trail {
+  stroke: #3a3a3a;
+}
+
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-right .right-circular .CircularProgressbar-path {
+  stroke: #66cc33;
+}
+
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-right .right-circular .CircularProgressbar-text {
+  fill: white;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-right .right-star {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 15px;
+  color: #fb4226;
+}
+
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-right .right-reviews {
+  font-size: 15px;
+  color: white;
+}
+
+.movieDetails .movieDetailsShowTime {
+  padding: 50px 0;
+  background-color: black;
+  color: white;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container {
+  margin: auto;
+  max-width: 700px;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details {
+  color: white;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-logo {
+  height: 400px;
+  min-width: 90px;
+  overflow-y: scroll;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-logo::-webkit-scrollbar {
+  display: none;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-logo .logo-item {
+  position: relative;
+  padding: 20px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-logo .logo-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: calc(100% - 40px);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-logo .logo-item.active {
+  opacity: 1;
+  background-color: #efefef;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-logo .logo-item.active::after {
+  border-bottom: 2px solid #fb4226;
+  -webkit-box-shadow: 0 -3px 10px 0 #fb4226;
+          box-shadow: 0 -3px 10px 0 #fb4226;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema {
+  height: 400px;
+  overflow-y: scroll;
+  border-left: 1px solid #d1d1d1;
+  width: calc(100% - 50px);
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema::-webkit-scrollbar {
+  display: none;
+  width: 5px;
+  background-color: #ddd;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema:hover::-webkit-scrollbar {
+  display: block;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema .theater-item {
+  margin: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema .theater-item .info-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema .theater-item .info-top img {
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema .theater-item .info-top .top-name {
+  margin: 0;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema .theater-item .info-top .top-rate {
+  font-size: 12px;
+  color: #9b9b9b;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema .theater-item .info-bottom {
+  padding: 10px 0;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema .theater-item .info-bottom .btn-time {
+  display: inline-block;
+  color: #fb4226 !important;
+  border: 1px solid #fb4226;
+  font-size: 15px;
+  margin: 0 10px 10px 0;
+  padding: 5px 17px;
+  border-radius: 4px;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema .theater-item .info-bottom .btn-time:hover {
+  color: white !important;
+  background-color: #fb4226;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .info-content .info-content-left .row,
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .info-content .info-content-right .row {
+  margin-bottom: 20px;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .info-content .info-content-left .row .title,
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .info-content .info-content-right .row .title {
+  font-weight: bold;
+  font-size: 17px;
+  color: white;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .info-content .info-content-left .row .content,
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .info-content .info-content-right .row .content {
+  font-weight: normal;
+  font-size: 14px;
+  color: #dadada;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .ant-tabs-nav::before {
+  border-bottom: none !important;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .ant-tabs-nav .ant-tabs-nav-wrap {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  font-size: 22px;
+  color: #fa5238;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .ant-tabs-ink-bar {
+  background: #fa5238;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .ant-tabs-tab:hover {
+  color: #fa5238;
+}
+
+.movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .ant-tabs-tab-btn {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .movieDetails .movieDetailsInfo {
+    min-height: 50vh;
+    height: auto;
+  }
+  .movieDetails .movieDetailsInfo .movieDetailsInfo-container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-left {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-left .left-img,
+  .movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-left .left-info {
+    margin: 5px 0;
+    width: 100%;
+  }
+  .movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-right {
+    display: none;
+  }
+  .movieDetails .movieDetailsShowTime {
+    padding: 0;
+  }
+  .movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container {
+    border-radius: unset;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: unset !important;
+    -webkit-box-direction: unset !important;
+        -ms-flex-direction: unset !important;
+            flex-direction: unset !important;
+    height: unset;
+    overflow-x: scroll;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+  .movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-logo .logo-item::after {
+    display: none;
+  }
+  .movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema {
+    width: 100%;
+    border: 1px solid #d1d1d1;
+  }
+  .movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema::-webkit-scrollbar {
+    display: block;
+  }
+  .movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .info-content {
+    padding: 0 20px;
+  }
+  .movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .info-content .info-content-left,
+  .movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .info-content .info-content-right {
+    width: 100%;
+  }
+}
+
+.ticketRoom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.ticketRoom .ticketRoom-left {
+  width: 80%;
+  position: relative;
+  height: 100vh;
+}
+
+.ticketRoom .ticketRoom-left .left-header {
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+          box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 20px;
+  height: 70px;
+}
+
+.ticketRoom .ticketRoom-left .left-header .header-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ticketRoom .ticketRoom-left .left-header .header-info .header-logo {
+  margin-right: 10px;
+}
+
+.ticketRoom .ticketRoom-left .left-header .header-info .header-logo img {
+  height: 50px;
+  width: 50px;
+}
+
+.ticketRoom .ticketRoom-left .left-header .header-info .header-address h4 {
+  margin: 0;
+}
+
+.ticketRoom .ticketRoom-left .left-header .header-info .header-address p {
+  font-size: 12px;
+  color: #9b9b9b;
+  margin: 0;
+}
+
+.ticketRoom .ticketRoom-left .left-header .header-countDown {
+  text-align: center;
+}
+
+.ticketRoom .ticketRoom-left .left-header .header-countDown p {
+  font-size: 15px;
+  margin: 0;
+}
+
+.ticketRoom .ticketRoom-left .left-header .header-countDown span {
+  font-size: 20px;
+  color: #fb4226;
+}
+
+.ticketRoom .ticketRoom-left .left-body {
+  height: calc(100% - 70px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 50px;
+}
+
+.ticketRoom .ticketRoom-left .left-body .ChooseSeat {
+  margin-bottom: 50px;
+  white-space: nowrap;
+}
+
+.ticketRoom .ticketRoom-left .left-body .ChooseSeat .seat {
+  width: 35px;
+  margin: 5px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+}
+
+.ticketRoom .ticketRoom-left .left-body .ChooseSeat .vipSeats {
+  background-color: #fdb328;
+}
+
+.ticketRoom .ticketRoom-left .left-body .ChooseSeat .bookedSeats {
+  background: #383636;
+  color: white;
+  cursor: no-drop !important;
+}
+
+.ticketRoom .ticketRoom-left .left-body .ChooseSeat .gheDangDat {
+  background: green;
+  color: white;
+}
+
+.ticketRoom .ticketRoom-right {
+  position: relative;
+  height: 100vh;
+  width: 20%;
+  background-color: black;
 }
 /*# sourceMappingURL=main.css.map */

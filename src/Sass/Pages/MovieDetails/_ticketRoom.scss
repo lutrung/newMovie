@@ -1,0 +1,88 @@
+.ticketRoom {
+  display: flex;
+  align-items: flex-start;
+
+  .ticketRoom-left {
+    width: 80%;
+    position: relative;
+    height: 100vh;
+    .left-header {
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px,
+        rgba(0, 0, 0, 0.24) 0px 1px 2px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 70px;
+      .header-info {
+        display: flex;
+        align-items: center;
+        .header-logo {
+          margin-right: 10px;
+          img {
+            height: 50px;
+            width: 50px;
+          }
+        }
+        .header-address {
+          h4 {
+            margin: 0;
+          }
+          p {
+            font-size: 12px;
+            color: #9b9b9b;
+            margin: 0;
+          }
+        }
+      }
+      .header-countDown {
+        text-align: center;
+        p {
+          font-size: 15px;
+          margin: 0;
+        }
+        span {
+          font-size: 20px;
+          color: #fb4226;
+        }
+      }
+    }
+    .left-body {
+      height: calc(100% - 70px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      .ChooseSeat {
+        margin-bottom: 50px;
+        white-space: nowrap;
+        .seat {
+          width: 35px;
+          margin: 5px;
+          height: 35px;
+          border: none;
+          border-radius: 5px;
+        }
+        .vipSeats {
+          background-color: rgb(253, 179, 40);
+        }
+        .bookedSeats {
+          background: rgb(56, 54, 54);
+          color: white;
+          cursor: no-drop !important;
+        }
+        .gheDangDat {
+          background: green;
+          color: white;
+        }
+      }
+    }
+  }
+  .ticketRoom-right {
+    position: relative;
+    height: 100vh;
+    width: 20%;
+    background-color: black;
+  }
+}

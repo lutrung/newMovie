@@ -35,6 +35,10 @@
       .logo-item.active {
         opacity: 1;
         background-color: #efefef;
+        &::after {
+          border-bottom: 2px solid #fb4226;
+          box-shadow: 0 -3px 10px 0 #fb4226;
+        }
       }
     }
     .theater-cluster {
@@ -112,6 +116,10 @@
       .cinemaByCode-item.active {
         opacity: 1;
         background-color: #efefef;
+        &::after {
+          border-bottom: 2px solid #fb4226;
+          box-shadow: 0 -3px 10px 0 #fb4226;
+        }
       }
     }
     .theater-showtime {
@@ -155,12 +163,15 @@
         .info-bottom {
           padding: 10px 0;
           .btn-time {
-            color: #fb4226;
-            border-color: #fb4226;
+            display: inline-block;
+            color: #fb4226 !important;
+            border: 1px solid #fb4226;
             font-size: 15px;
             margin: 0 10px 10px 0;
+            padding: 5px 17px;
+            border-radius: 4px;
             &:hover {
-              color: white;
+              color: white !important;
               background-color: #fb4226;
             }
           }
