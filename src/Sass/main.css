@@ -1778,7 +1778,7 @@ li {
   cursor: no-drop !important;
 }
 
-.ticketRoom .ticketRoom-left .left-body .ChooseSeat .gheDangDat {
+.ticketRoom .ticketRoom-left .left-body .ChooseSeat .bookingSeat {
   background: green;
   color: white;
 }

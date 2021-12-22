@@ -12,7 +12,7 @@ function ChooseSeat({ }) {
                 let disable = seat.daDat ? 'disable' : '';
                 let seatNumber = seat.daDat ? 'X' : seat.stt;
                 let indexGheDangDat = listBookingSeat.findIndex(gheDangDat => seat.maGhe === gheDangDat.maGhe)
-                let classGheDangDat = indexGheDangDat !== -1 ? 'gheDangDat' : '';
+                let classBookingSeat = indexGheDangDat !== -1 ? 'bookingSeat' : '';
                 return <Fragment key={index}>
                     <button onClick={() => {
                         dispatch({
@@ -23,7 +23,7 @@ function ChooseSeat({ }) {
                                 stt: seat.stt
                             }
                         })
-                    }} disabled={`${disable}`} className={`seat ${classVipSeats} ${classBookedSeats} `}>{seatNumber}</button>
+                    }} disabled={`${disable}`} className={`seat ${classVipSeats} ${classBookedSeats} ${classBookingSeat} `}>{seatNumber}</button>
                     {(index + 1) % 16 === 0 ? <br /> : ''}
                 </Fragment>
             })}
