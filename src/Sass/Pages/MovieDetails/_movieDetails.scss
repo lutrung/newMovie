@@ -66,16 +66,21 @@
           }
           .info-btn {
             display: inline-block;
+            font-weight: bold;
             margin-top: 10px;
             font-size: 16px;
             border-radius: 4px;
             text-align: center;
             background: 0 0;
             padding: 7px 25px;
-            transition: all 0.2s;
-            background-color: #fb4226;
             border: none;
             color: #fff !important;
+            background-image: linear-gradient(to right, #f6cb3b 0%, #ff6048e1 51%, #fbce37 100%);
+            transition: 0.5s;
+            background-size: 200% auto;
+            &:hover {
+              background-position: right center;
+            }
           }
         }
       }
@@ -197,15 +202,16 @@
                 padding: 10px 0;
                 .btn-time {
                   display: inline-block;
-                  color: #fb4226 !important;
-                  border: 1px solid #fb4226;
+                  font-weight: bold;
                   font-size: 15px;
                   margin: 0 10px 10px 0;
                   padding: 5px 17px;
                   border-radius: 4px;
+                  background-image: linear-gradient(to right, #f6cb3b 0%, #ff6048e1 51%, #fbce37 100%);
+                  transition: 0.5s;
+                  background-size: 200% auto;
                   &:hover {
-                    color: white !important;
-                    background-color: #fb4226;
+                    background-position: right center;
                   }
                 }
               }

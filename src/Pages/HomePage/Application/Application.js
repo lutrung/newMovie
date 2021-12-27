@@ -40,14 +40,14 @@ export default function Application() {
                 <div className='app-left'>
                     <h2>Ứng dụng tiện lợi dành cho người yêu điện ảnh</h2>
                     <p>Không chỉ đặt vé, bạn còn có thể bình luận phim, chấm điểm rạp và đổi quà hấp dẫn.</p>
-                    <a href='https://itunes.apple.com/us/app/123phim-mua-ve-lien-tay-chon/id615186197?mt=8' target='_blank' className='download'>App miễn phí - Tải về ngay!</a>
+                    <a href='https://itunes.apple.com/us/app/123phim-mua-ve-lien-tay-chon/id615186197?mt=8' target='_blank' className='download' rel="noreferrer">App miễn phí - Tải về ngay!</a>
                 </div>
                 <div className='app-right'>
-                    <img className='app-mobile' src={phone} />
+                    <img className='app-mobile' src={phone} alt='...' />
                     <Slider className='app-slider'{...settings}>
                         {listSlider.map((slide, index) => {
                             return <div key={index} className='carousel-item'>
-                                <img src={slide.img} />
+                                <img src={slide.img} alt='...' />
                             </div>
                         })}
                     </Slider>

@@ -1,9 +1,7 @@
 import { Tabs } from 'antd';
 import moment from 'moment';
-import React, { Fragment } from 'react';
-import Button from '@mui/material/Button';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-
 const { TabPane } = Tabs;
 function ShowTimeDetails({ movieDetails }) {
     const onChangeCluster = (key) => {

@@ -25,7 +25,7 @@ export default function Header() {
     return (
         <div className='header'>
             <a href='/' className='header-logo'>
-                <img src={logo} />
+                <img src={logo} alt='...' />
             </a>
             <ul className='header-menu'>
                 <li className='header-item'><a href='#lichchieu'>Lịch chiếu</a></li>

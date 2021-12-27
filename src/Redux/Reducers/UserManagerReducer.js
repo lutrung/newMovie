@@ -1,4 +1,4 @@
-import { SIGN_IN } from "../Const/MovieManagerConst"
+import { BOOKING_SUCCESS, SIGN_IN } from "../Const/MovieManagerConst"
 
 let userSignIn = {}
 if (localStorage.getItem("USER_SIGNIN")) {

@@ -1,4 +1,3 @@
-import Button from '@mui/material/Button';
 import moment from 'moment';
 import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -52,11 +51,15 @@ export default function MovieTheater() {
         }
         setShowTimeByTheater(showTime)
     }
-    useEffect(async () => {
-        dispatch(await getCinemaSystem())
-        dispatch(await getTheTheaterClusterByCode(codeCinema))
-        dispatch(await getShowSchedule(codeCinema))
-    }, [])
+    useEffect(() => {
+        async function fetchData() {
+            dispatch(await getCinemaSystem())
+            dispatch(await getTheTheaterClusterByCode(codeCinema))
+            dispatch(await getShowSchedule(codeCinema))
+        }
+        fetchData()
+    }, []);
+
     return (
         <div id='cumrap' className='movieTheater' style={{ backgroundImage: `url(${background})` }}>
             <div className='movieTheater-container'>
@@ -93,7 +96,7 @@ export default function MovieTheater() {
                                             {cinema.danhSachPhim?.slice(0, 10).map((movieInfo, indeMovieInfo) => {
                                                 return <div key={indeMovieInfo} className='item-info'>
                                                     <div className='info-top'>
-                                                        <img src={movieInfo.hinhAnh} />
+                                                        <img src={movieInfo.hinhAnh} alt='...' />
                                                         <div>
                                                             <h3 className='top-name'>{movieInfo.tenPhim}</h3>
                                                             <p className='top-rate'>157 phút - TIX 0 - IMDb 6.8</p>
@@ -102,8 +105,7 @@ export default function MovieTheater() {
                                                     <div className='info-bottom'>
                                                         <h4>Suất chiếu:</h4>
                                                         {movieInfo.lstLichChieuTheoPhim?.slice(0, 7).map((time, index) => {
-                                                            return <NavLink to='/phongve' key={index} className='btn-time' variant="outlined">{moment(time.ngayChieuGioChieu).format('hh:mm')}</NavLink>
-
+                                                            return <NavLink to={'/phongve/' + time.maLichChieu} key={index} className='btn-time' variant="outlined">{moment(time.ngayChieuGioChieu).format('hh:mm')}</NavLink>
                                                         })}
                                                     </div>
                                                 </div>

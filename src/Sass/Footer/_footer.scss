@@ -13,26 +13,16 @@
     border-bottom: 1px solid #4a4a4a;
     .footer-left {
       width: 80%;
-      display: flex;
-      align-items: flex-start;
-      img {
-        border-radius: 8px;
-        width: 80px;
-        height: auto;
-        margin-right: 20px;
+      h3 {
+        color: white;
       }
-      .left-info {
-        h3 {
-          color: white;
-        }
-        p {
-          margin-bottom: 0;
-          font-size: 13px;
-          a {
-            color: #fb4226 !important;
-            &:hover {
-              border-bottom: 1px solid #fb4226;
-            }
+      p {
+        margin-bottom: 0;
+        font-size: 13px;
+        a {
+          color: #fb4226 !important;
+          &:hover {
+            border-bottom: 1px solid #fb4226;
           }
         }
       }

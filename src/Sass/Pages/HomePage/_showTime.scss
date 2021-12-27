@@ -45,13 +45,14 @@
     overflow: hidden;
     padding: 10px;
     height: 400px;
+
     cursor: pointer;
     transition: all 0.5s;
     .item-thumbnail {
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      height: 318px;
+      height: 85%;
       width: 100%;
       margin-bottom: 10px;
       position: relative;
@@ -126,10 +127,11 @@
         font-size: 18px;
         padding: 10px;
         text-align: center;
-        background: linear-gradient(to left, #fb4226, #ce3017 100%);
-        transition: all 0.3s;
+        background-image: linear-gradient(to right, #fbce37 0%, #fb4226 51%, #fbce37 100%);
+        transition: 0.5s;
+        background-size: 200% auto;
         &:hover {
-          background: linear-gradient(to right, #fb4226, #ce3017 100%);
+          background-position: right center;
         }
       }
     }
@@ -167,6 +169,12 @@
     .slick-prev,
     .slick-next {
       display: none !important;
+    }
+    .showTime-item {
+      height: 500px;
+      .item-thumbnail {
+        // height: 400px;
+      }
     }
   }
 }

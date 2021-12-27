@@ -1,6 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { getBannerList, getCinemaSystem, getMovieList } from '../../Redux/Actions/MovieManagerActions'
+import React, { Fragment } from 'react'
 import Application from './Application/Application'
 import Carousel from './Carousel/carousel'
 import MovieTheater from './MovieTheater/MovieTheater'
@@ -8,12 +6,6 @@ import News from './News/news'
 import ShowTime from './ShowTime/showTime'
 
 export default function HomePage() {
-    const dispatch = useDispatch()
-    useEffect(async () => {
-        window.scrollTo(0, 0)
-        dispatch(await getMovieList())
-        dispatch(await getBannerList())
-    }, [])
     return (
         <Fragment>
             <Carousel />

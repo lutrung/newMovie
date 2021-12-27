@@ -300,35 +300,22 @@ li {
 
 .footer .footer-container .footer-left {
   width: 80%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
 }
 
-.footer .footer-container .footer-left img {
-  border-radius: 8px;
-  width: 80px;
-  height: auto;
-  margin-right: 20px;
-}
-
-.footer .footer-container .footer-left .left-info h3 {
+.footer .footer-container .footer-left h3 {
   color: white;
 }
 
-.footer .footer-container .footer-left .left-info p {
+.footer .footer-container .footer-left p {
   margin-bottom: 0;
   font-size: 13px;
 }
 
-.footer .footer-container .footer-left .left-info p a {
+.footer .footer-container .footer-left p a {
   color: #fb4226 !important;
 }
 
-.footer .footer-container .footer-left .left-info p a:hover {
+.footer .footer-container .footer-left p a:hover {
   border-bottom: 1px solid #fb4226;
 }
 
@@ -409,6 +396,12 @@ li {
 
 .carousel .carousel-item {
   position: relative;
+  height: 800px;
+}
+
+.carousel .carousel-item .carousel-background {
+  height: 100%;
+  width: 100%;
 }
 
 .carousel .carousel-item .carousel-play {
@@ -436,6 +429,10 @@ li {
   }
   .carousel .carousel-item {
     height: 300px;
+  }
+  .css-1xp487g {
+    width: 90% !important;
+    height: 400px !important;
   }
 }
 
@@ -510,7 +507,7 @@ li {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 318px;
+  height: 85%;
   width: 100%;
   margin-bottom: 10px;
   position: relative;
@@ -595,15 +592,15 @@ li {
   font-size: 18px;
   padding: 10px;
   text-align: center;
-  background: -webkit-gradient(linear, right top, left top, from(#fb4226), to(#ce3017));
-  background: linear-gradient(to left, #fb4226, #ce3017 100%);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  background-image: -webkit-gradient(linear, left top, right top, from(#fbce37), color-stop(51%, #fb4226), to(#fbce37));
+  background-image: linear-gradient(to right, #fbce37 0%, #fb4226 51%, #fbce37 100%);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-size: 200% auto;
 }
 
 .showTime .showTime-item .item-info .item-buyTickets:hover {
-  background: -webkit-gradient(linear, left top, right top, from(#fb4226), to(#ce3017));
-  background: linear-gradient(to right, #fb4226, #ce3017 100%);
+  background-position: right center;
 }
 
 .showTime .showTime-item:hover .item-thumbnail .item-play,
@@ -636,6 +633,9 @@ li {
   .showTime .slick-prev,
   .showTime .slick-next {
     display: none !important;
+  }
+  .showTime .showTime-item {
+    height: 500px;
   }
 }
 
@@ -856,17 +856,20 @@ li {
 
 .movieTheater .movieTheater-container .theater-showtime .item-info .info-bottom .btn-time {
   display: inline-block;
-  color: #fb4226 !important;
-  border: 1px solid #fb4226;
+  font-weight: bold;
   font-size: 15px;
   margin: 0 10px 10px 0;
   padding: 5px 17px;
   border-radius: 4px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#f6cb3b), color-stop(51%, #ff6048e1), to(#fbce37));
+  background-image: linear-gradient(to right, #f6cb3b 0%, #ff6048e1 51%, #fbce37 100%);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-size: 200% auto;
 }
 
 .movieTheater .movieTheater-container .theater-showtime .item-info .info-bottom .btn-time:hover {
-  color: white !important;
-  background-color: #fb4226;
+  background-position: right center;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1053,6 +1056,7 @@ li {
 }
 
 .application .app-container .app-left a {
+  display: inline-block;
   background-color: #fb4226;
   padding: 10px 20px;
   color: #fff !important;
@@ -1111,6 +1115,7 @@ li {
     width: 100%;
   }
   .application .app-container .app-left {
+    text-align: center;
     margin-bottom: 20px;
   }
 }
@@ -1364,17 +1369,24 @@ li {
 
 .movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-left .left-info .info-btn {
   display: inline-block;
+  font-weight: bold;
   margin-top: 10px;
   font-size: 16px;
   border-radius: 4px;
   text-align: center;
   background: 0 0;
   padding: 7px 25px;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  background-color: #fb4226;
   border: none;
   color: #fff !important;
+  background-image: -webkit-gradient(linear, left top, right top, from(#f6cb3b), color-stop(51%, #ff6048e1), to(#fbce37));
+  background-image: linear-gradient(to right, #f6cb3b 0%, #ff6048e1 51%, #fbce37 100%);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-size: 200% auto;
+}
+
+.movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-left .left-info .info-btn:hover {
+  background-position: right center;
 }
 
 .movieDetails .movieDetailsInfo .movieDetailsInfo-container .movieDetailsInfo-right {
@@ -1540,17 +1552,20 @@ li {
 
 .movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema .theater-item .info-bottom .btn-time {
   display: inline-block;
-  color: #fb4226 !important;
-  border: 1px solid #fb4226;
+  font-weight: bold;
   font-size: 15px;
   margin: 0 10px 10px 0;
   padding: 5px 17px;
   border-radius: 4px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#f6cb3b), color-stop(51%, #ff6048e1), to(#fbce37));
+  background-image: linear-gradient(to right, #f6cb3b 0%, #ff6048e1 51%, #fbce37 100%);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-size: 200% auto;
 }
 
 .movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema .theater-item .info-bottom .btn-time:hover {
-  color: white !important;
-  background-color: #fb4226;
+  background-position: right center;
 }
 
 .movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .info-content .info-content-left .row,
@@ -1671,15 +1686,11 @@ li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
 }
 
 .ticketRoom .ticketRoom-left {
-  width: 80%;
+  width: 75%;
   position: relative;
-  height: 100vh;
 }
 
 .ticketRoom .ticketRoom-left .left-header {
@@ -1742,7 +1753,6 @@ li {
 }
 
 .ticketRoom .ticketRoom-left .left-body {
-  height: calc(100% - 70px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1752,15 +1762,48 @@ li {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 50px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: calc(100% - 70px);
 }
 
-.ticketRoom .ticketRoom-left .left-body .ChooseSeat {
+.ticketRoom .ticketRoom-left .left-body .chooseSeat {
   margin-bottom: 50px;
   white-space: nowrap;
 }
 
-.ticketRoom .ticketRoom-left .left-body .ChooseSeat .seat {
+.ticketRoom .ticketRoom-left .left-body .typeOfSeat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.ticketRoom .ticketRoom-left .left-body .typeOfSeat .typeOfSeat-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 10px;
+}
+
+.ticketRoom .ticketRoom-left .left-body .chooseSeat .seat,
+.ticketRoom .ticketRoom-left .left-body .typeOfSeat .seat {
   width: 35px;
   margin: 5px;
   height: 35px;
@@ -1768,25 +1811,241 @@ li {
   border-radius: 5px;
 }
 
-.ticketRoom .ticketRoom-left .left-body .ChooseSeat .vipSeats {
+.ticketRoom .ticketRoom-left .left-body .chooseSeat .vipSeats,
+.ticketRoom .ticketRoom-left .left-body .typeOfSeat .vipSeats {
   background-color: #fdb328;
 }
 
-.ticketRoom .ticketRoom-left .left-body .ChooseSeat .bookedSeats {
+.ticketRoom .ticketRoom-left .left-body .chooseSeat .bookedSeats,
+.ticketRoom .ticketRoom-left .left-body .typeOfSeat .bookedSeats {
   background: #383636;
   color: white;
   cursor: no-drop !important;
 }
 
-.ticketRoom .ticketRoom-left .left-body .ChooseSeat .bookingSeat {
+.ticketRoom .ticketRoom-left .left-body .chooseSeat .bookingSeat,
+.ticketRoom .ticketRoom-left .left-body .typeOfSeat .bookingSeat {
   background: green;
   color: white;
+}
+
+.ticketRoom .ticketRoom-left .left-body .chooseSeat span,
+.ticketRoom .ticketRoom-left .left-body .typeOfSeat span {
+  text-align: center;
 }
 
 .ticketRoom .ticketRoom-right {
   position: relative;
   height: 100vh;
-  width: 20%;
-  background-color: black;
+  width: 25%;
+  -webkit-box-shadow: 0 0 15px #0000004d;
+          box-shadow: 0 0 15px #0000004d;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  border: 2px dashed gray;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-price {
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  color: #2bff7a;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details {
+  padding: 40px 0;
+  margin: 40px 0;
+  border-top: 2px dashed gray;
+  border-bottom: 2px dashed gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details .details-left {
+  height: 250px;
+  width: 180px;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details .details-right {
+  width: calc(100% - 200px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details .details-right .right-nameMovie {
+  font-weight: bold;
+  font-size: 35px;
+  color: black;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details .details-right .right-nameTheater,
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details .details-right .right-showTime {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details .details-right .right-nameTheater p,
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details .details-right .right-showTime p {
+  font-weight: normal;
+  margin: 0;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-seat,
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-seatMoblie {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-seat .seatList,
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-seatMoblie .seatList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-seat .seatList p,
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-seatMoblie .seatList p {
+  font-weight: normal;
+  margin: 0;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-seatMoblie {
+  display: none;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-btn {
+  opacity: 1;
+  width: 100%;
+  padding: 20px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#2bff7a), color-stop(51%, #28b9ff), to(#84fab0));
+  background-image: linear-gradient(to right, #2bff7a 0%, #28b9ff 51%, #84fab0 100%);
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+  outline: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-size: 200% auto;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-btn:hover {
+  background-position: right center;
+}
+
+.ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 1024px) {
+  .ticketRoom {
+    height: 100vh;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .ticketRoom .ticketRoom-left {
+    width: 100%;
+  }
+  .ticketRoom .ticketRoom-left .left-body {
+    padding: 20px;
+  }
+  .ticketRoom .ticketRoom-left .left-body .screen {
+    width: 100%;
+  }
+  .ticketRoom .ticketRoom-right {
+    width: 100%;
+    height: auto;
+  }
+  .ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-price {
+    display: none;
+  }
+  .ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details {
+    margin: 0;
+    padding: 10px 0;
+    border: none;
+  }
+  .ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details .details-right {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details .details-right .ticketInfo-seatMoblie {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details .details-right .right-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-seat {
+    display: none;
+  }
+}
+
+@media screen and (max-Width: 768px) {
+  .ticketRoom .ticketRoom-left .left-body .chooseSeat {
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details .details-left {
+    display: none;
+  }
+  .ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details .details-right {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=main.css.map */

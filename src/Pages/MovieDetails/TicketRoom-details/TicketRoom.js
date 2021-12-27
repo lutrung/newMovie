@@ -4,14 +4,15 @@ import logo from '../../../Assets/Images/logo.png'
 import Swal from 'sweetalert2'
 import { getTicketRoom } from '../../../Redux/Actions/MovieManagerActions'
 import ChooseSeat from './ChooseSeat'
+import TicketInfo from './TicketInfo'
 function TicketRoom({ props }) {
     const dispatch = useDispatch()
     const showtimeCode = props.match.params.showtimeCode
     const ticketRoom = useSelector(state => state.MovieManagerReducer.ticketRoom)
     const [seconds, setSeconds] = useState(0)
-    const [minutes, setMinutes] = useState(50)
-    function updateTime() {
-        if (minutes == 0 && seconds == 0) {
+    const [minutes, setMinutes] = useState(5)
+    function resetTime() {
+        if (minutes === 0 && seconds === 0) {
             Swal.fire({
                 title: 'Đã hết thời gian giữ ghế.',
                 text: "Vui chọn ghế trong thời hạn 5 phút",
@@ -39,7 +40,7 @@ function TicketRoom({ props }) {
         }
     }
     useEffect(() => {
-        const token = setTimeout(updateTime, 1000)
+        const token = setTimeout(resetTime, 1000)
         return function cleanUp() {
             clearTimeout(token);
         }
@@ -55,7 +56,7 @@ function TicketRoom({ props }) {
                 <div className='left-header'>
                     <div className='header-info'>
                         <a href='/' className='header-logo'>
-                            <img src={logo} />
+                            <img src={logo} alt='...' />
                         </a>
                         <div className='header-address'>
                             <h4>{ticketRoom.thongTinPhim?.tenCumRap}</h4>
@@ -73,7 +74,7 @@ function TicketRoom({ props }) {
                 </div>
             </div>
             <div className='ticketRoom-right'>
-
+                <TicketInfo showtimeCode={showtimeCode} />
             </div>
         </div>
     )

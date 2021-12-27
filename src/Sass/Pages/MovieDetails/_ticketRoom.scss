@@ -1,15 +1,12 @@
 .ticketRoom {
   display: flex;
-  align-items: flex-start;
-
+  // height: 100vh;
   .ticketRoom-left {
-    width: 80%;
+    width: 75%;
     position: relative;
-    height: 100vh;
     .left-header {
       background-color: white;
-      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px,
-        rgba(0, 0, 0, 0.24) 0px 1px 2px;
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -49,14 +46,29 @@
       }
     }
     .left-body {
-      height: calc(100% - 70px);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 50px;
-      .ChooseSeat {
+      flex-direction: column;
+      height: calc(100% - 70px);
+      .chooseSeat {
         margin-bottom: 50px;
         white-space: nowrap;
+      }
+      .typeOfSeat {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .typeOfSeat-item {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin: 0 10px;
+        }
+      }
+      .chooseSeat,
+      .typeOfSeat {
         .seat {
           width: 35px;
           margin: 5px;
@@ -76,13 +88,177 @@
           background: green;
           color: white;
         }
+        span {
+          text-align: center;
+        }
       }
     }
   }
   .ticketRoom-right {
     position: relative;
     height: 100vh;
-    width: 20%;
-    background-color: black;
+    width: 25%;
+    box-shadow: 0 0 15px #0000004d;
+    .ticketInfo {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      border: 2px dashed gray;
+      .ticketInfo-top {
+        .ticketInfo-price {
+          text-align: center;
+          font-weight: bold;
+          font-size: 40px;
+          color: #2bff7a;
+        }
+        .ticketInfo-details {
+          padding: 40px 0;
+          margin: 40px 0;
+          border-top: 2px dashed gray;
+          border-bottom: 2px dashed gray;
+          display: flex;
+          align-items: stretch;
+          justify-content: space-between;
+          .details-left {
+            height: 250px;
+            width: 180px;
+          }
+          .details-right {
+            width: calc(100% - 200px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .right-nameMovie {
+              font-weight: bold;
+              font-size: 35px;
+              color: black;
+            }
+            .right-nameTheater,
+            .right-showTime {
+              font-size: 17px;
+              font-weight: bold;
+              p {
+                font-weight: normal;
+                margin: 0;
+              }
+            }
+          }
+        }
+        .ticketInfo-seat,
+        .ticketInfo-seatMoblie {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          font-size: 20px;
+          font-weight: bold;
+          .seatList {
+            display: flex;
+            justify-content: right;
+            flex-wrap: wrap;
+            p {
+              font-weight: normal;
+              margin: 0;
+            }
+          }
+        }
+        .ticketInfo-seatMoblie {
+          display: none;
+        }
+      }
+      .ticketInfo-btn {
+        opacity: 1;
+        width: 100%;
+        padding: 20px;
+        background-image: linear-gradient(to right, #2bff7a 0%, #28b9ff 51%, #84fab0 100%);
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 30px;
+        color: white;
+        outline: none;
+        transition: 0.5s;
+        background-size: 200% auto;
+        &:hover {
+          background-position: right center;
+        }
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .ticketRoom {
+    height: 100vh;
+    justify-content: space-between;
+    flex-direction: column;
+    .ticketRoom-left {
+      width: 100%;
+      .left-body {
+        padding: 20px;
+        .screen {
+          width: 100%;
+        }
+      }
+    }
+    .ticketRoom-right {
+      width: 100%;
+      height: auto;
+      .ticketInfo {
+        .ticketInfo-top {
+          .ticketInfo-price {
+            display: none;
+          }
+          .ticketInfo-details {
+            margin: 0;
+            padding: 10px 0;
+            border: none;
+            .details-right {
+              justify-content: center;
+              .ticketInfo-seatMoblie {
+                display: flex;
+              }
+              .right-item {
+                display: flex;
+                justify-content: space-between;
+              }
+            }
+          }
+          .ticketInfo-seat {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and(max-Width: 768px) {
+  .ticketRoom {
+    .ticketRoom-left {
+      .left-body {
+        .chooseSeat {
+          width: 100%;
+          overflow-x: scroll;
+        }
+      }
+    }
+    .ticketRoom-right {
+      .ticketInfo {
+        .ticketInfo-top {
+          .ticketInfo-details {
+            .details-left {
+              display: none;
+            }
+            .details-right {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { CHANGE_CODE_CINEMA, GET_BANNER_LIST, GET_CINEMA_BY_CODE, GET_CINEMA_SYSTEM, GET_MOVIES_LIST, GET_MOVIE_DETAILS, GET_SHOW_SCHEDULE, GET_TICKET_ROOM } from "../Const/MovieManagerConst";
+import { BOOKING_SEAT, BOOKING_SUCCESS, CHANGE_CODE_CINEMA, GET_BANNER_LIST, GET_CINEMA_BY_CODE, GET_CINEMA_SYSTEM, GET_MOVIES_LIST, GET_MOVIE_DETAILS, GET_SHOW_SCHEDULE, GET_TICKET_ROOM } from "../Const/MovieManagerConst";
 
 const stateDefault = {
     bannerList: [],
@@ -45,16 +45,20 @@ const MovieManagerReducer = (state = stateDefault, action) => {
             state.ticketRoom = action.ticketRoom
             return { ...state }
         }
-        case "BOOKING_SEAT": {
-            let mangGheDaDang = [...state.listBookingSeat]
-            let index = mangGheDaDang.findIndex(gheDangDat => gheDangDat.maGhe === action.gheDangDat.maGhe)
+        case BOOKING_SEAT: {
+            let listBookingSeat = [...state.listBookingSeat]
+            let index = listBookingSeat.findIndex(item => item.seatCode === action.bookingSeat.seatCode)
             if (index !== -1) {
-                mangGheDaDang.splice(index, 1)
+                listBookingSeat.splice(index, 1)
             } else {
-                mangGheDaDang.push(action.gheDangDat)
+                listBookingSeat.push(action.bookingSeat)
             }
-            state.listBookingSeat = mangGheDaDang
+            state.listBookingSeat = listBookingSeat
             return { ...state };
+        }
+        case BOOKING_SUCCESS: {
+            state.listBookingSeat = []
+            return { ...state }
         }
         default: return { ...state }
     }

@@ -1,33 +1,56 @@
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-function ChooseSeat({ }) {
+import { BOOKING_SEAT } from '../../../Redux/Const/MovieManagerConst'
+import screen from '../../../Assets/Images/screen.png'
+
+function ChooseSeat() {
     const dispatch = useDispatch()
     const ticketRoom = useSelector(state => state.MovieManagerReducer.ticketRoom)
     const listBookingSeat = useSelector(state => state.MovieManagerReducer.listBookingSeat)
-    return (
-        <div className='ChooseSeat'>
+    return (<Fragment>
+        <img className='screen' src={screen} alt='screen' />
+        <div className='chooseSeat'>
             {ticketRoom.danhSachGhe?.map((seat, index) => {
-                let classVipSeats = seat.loaiGhe === 'Thuong' ? '' : 'vipSeats';
-                let classBookedSeats = seat.daDat ? 'bookedSeats' : '';
+                let vipSeatsCss = seat.loaiGhe === 'Thuong' ? '' : 'vipSeats';
+                let bookedSeatsCss = seat.daDat ? 'bookedSeats' : '';
                 let disable = seat.daDat ? 'disable' : '';
-                let seatNumber = seat.daDat ? 'X' : seat.stt;
-                let indexGheDangDat = listBookingSeat.findIndex(gheDangDat => seat.maGhe === gheDangDat.maGhe)
-                let classBookingSeat = indexGheDangDat !== -1 ? 'bookingSeat' : '';
+                let seatNumberCss = seat.daDat ? 'X' : seat.stt;
+                let indexBookingSeat = listBookingSeat.findIndex(bookingSeat => seat.maGhe === bookingSeat.seatCode)
+                let bookingSeatCss = indexBookingSeat !== -1 ? 'bookingSeat' : '';
                 return <Fragment key={index}>
                     <button onClick={() => {
                         dispatch({
-                            type: "BOOKING_SEAT",
-                            gheDangDat: {
-                                maGhe: seat.maGhe,
-                                giaVe: seat.giaVe,
+                            type: BOOKING_SEAT,
+                            bookingSeat: {
+                                seatCode: seat.maGhe,
+                                ticketPrice: seat.giaVe,
                                 stt: seat.stt
                             }
                         })
-                    }} disabled={`${disable}`} className={`seat ${classVipSeats} ${classBookedSeats} ${classBookingSeat} `}>{seatNumber}</button>
+                    }} disabled={`${disable}`} className={`seat ${vipSeatsCss} ${bookedSeatsCss} ${bookingSeatCss} `}>{seatNumberCss}</button>
                     {(index + 1) % 16 === 0 ? <br /> : ''}
                 </Fragment>
             })}
         </div>
+        <div className='typeOfSeat'>
+            <div className='typeOfSeat-item'>
+                <button className='seat'></button>
+                <span>Ghế thường</span>
+            </div>
+            <div className='typeOfSeat-item'>
+                <button className='seat vipSeats'></button>
+                <span>Ghế VIP</span>
+            </div>
+            <div className='typeOfSeat-item'>
+                <button className='seat bookedSeats'>X</button>
+                <span>Ghế đã được đặt</span>
+            </div>
+            <div className='typeOfSeat-item'>
+                <button className='seat bookingSeat'></button>
+                <span>Ghế đang chọn</span>
+            </div>
+        </div>
+    </Fragment>
     )
 }
 export default React.memo(ChooseSeat)
