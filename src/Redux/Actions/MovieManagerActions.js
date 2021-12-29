@@ -170,3 +170,24 @@ export const bookTicketsAction = (tickets) => {
         }
     }
 }
+export const deleteMovie = (movieCode) => {
+    return async (dispatch) => {
+        try {
+            await Axios({
+                url: `https://movienew.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${movieCode}`,
+                method: 'DELETE',
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
+                    TokenCybersoft: token
+                }
+            }).then((result) => {
+                dispatch(getMovieList())
+                Swal.fire('Thông báo', 'Xóa thành công', 'success')
+            }).catch((error) => {
+                console.log(error);
+            })
+        } catch (error) {
+            Swal.fire('Thông báo', 'Đăng ký thất bại', 'error')
+        }
+    }
+}

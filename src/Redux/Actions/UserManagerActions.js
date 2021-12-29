@@ -23,7 +23,7 @@ export const signInAction = (accounts) => {
                     type: SIGN_IN,
                     userSignIn: result.data.content,
                 })
-                history.push('/trangchu')
+                history.push('/')
             })
         } catch (err) {
             Swal.fire('Thông báo', 'Tài khoản hoặc mật khẩu không đúng', 'error')

@@ -163,13 +163,19 @@
         .info-bottom {
           padding: 10px 0;
           .btn-time {
+            color: black;
             display: inline-block;
             font-weight: bold;
             font-size: 15px;
             margin: 0 10px 10px 0;
             padding: 5px 17px;
             border-radius: 4px;
-            background-image: linear-gradient(to right, #f6cb3b 0%, #ff6048e1 51%, #fbce37 100%);
+            background-image: linear-gradient(
+              to right,
+              #f6cb3b 0%,
+              #ff6048e1 51%,
+              #fbce37 100%
+            );
             transition: 0.5s;
             background-size: 200% auto;
             &:hover {

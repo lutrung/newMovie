@@ -45,9 +45,12 @@ function TicketRoom({ props }) {
             clearTimeout(token);
         }
     })
-    useEffect(async () => {
+    useEffect(() => {
         if (showtimeCode) {
-            dispatch(await getTicketRoom(showtimeCode))
+            async function fetchData() {
+                dispatch(await getTicketRoom(showtimeCode))
+            }
+            fetchData();
         }
     }, [])
     return (
