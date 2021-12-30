@@ -24,14 +24,14 @@ export default function EditMovie({ open, handleClose, movieCode }) {
     console.log(movieInfo);
     const dispatch = useDispatch()
     const [dataMovie, setDataMovie] = useState({
-        tenPhim: movieInfo.tenPhim,
-        trailer: movieInfo.trailer,
-        ngayKhoiChieu: movieInfo.ngayKhoiChieu,
-        danhGia: movieInfo.danhGia,
-        moTa: movieInfo.moTa,
-        hinhAnh: movieInfo.hinhAnh,
-        biDanh: movieInfo.biDanh,
-        maNhom: movieInfo.maNhom,
+        tenPhim: '',
+        trailer: '',
+        ngayKhoiChieu: '',
+        danhGia: null,
+        moTa: '',
+        hinhAnh: {},
+        biDanh: '',
+        maNhom: 'GP01',
     })
     const inputAdd = useRef(null);
     const onAdd = () => {
@@ -66,6 +66,21 @@ export default function EditMovie({ open, handleClose, movieCode }) {
         // handleClose()
         console.log(dataMovie);
     }
+    useEffect(() => {
+        if (movieInfo) {
+            let newDataUpdate = {
+                tenPhim: movieInfo.tenPhim,
+                trailer: movieInfo.trailer,
+                ngayKhoiChieu: movieInfo.ngayKhoiChieu,
+                danhGia: movieInfo.danhGia,
+                moTa: movieInfo.moTa,
+                hinhAnh: movieInfo.hinhAnh,
+                biDanh: movieInfo.biDanh,
+                maNhom: movieInfo.maNhom,
+            }
+            setDataMovie(newDataUpdate)
+        }
+    }, [movieInfo])
     useEffect(() => {
         if (movieCode) {
             async function fetchData() {
