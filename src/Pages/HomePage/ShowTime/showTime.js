@@ -44,7 +44,7 @@ export default function ShowTime() {
         <Tabs id='lichchieu' className='showTime' defaultActiveKey="1" >
             <TabPane tab="Đang chiếu" key="1">
                 <Slider {...settings}>
-                    {moviesList.slice(0, 14).map((item, index) => {
+                    {moviesList.map((item, index) => {
                         return (
                             <ShowTimeItem key={index} item={item} showing={true} />
                         )
@@ -53,7 +53,7 @@ export default function ShowTime() {
             </TabPane>
             <TabPane tab="Sắp chiếu" key="2">
                 <Slider {...settings}>
-                    {moviesList.slice(14).map((item, index) => {
+                    {moviesList.map((item, index) => {
                         return (
                             <ShowTimeItem key={index} item={item} showing={false} />
                         )

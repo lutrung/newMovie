@@ -1,4 +1,4 @@
-import { BOOKING_SEAT, BOOKING_SUCCESS, CHANGE_CODE_CINEMA, GET_BANNER_LIST, GET_CINEMA_BY_CODE, GET_CINEMA_SYSTEM, GET_MOVIES_LIST, GET_MOVIE_DETAILS, GET_SHOW_SCHEDULE, GET_TICKET_ROOM } from "../Const/MovieManagerConst";
+import { BOOKING_SEAT, BOOKING_SUCCESS, CHANGE_CODE_CINEMA, GET_BANNER_LIST, GET_CINEMA_BY_CODE, GET_CINEMA_SYSTEM, GET_INFO_MOVIE, GET_MOVIES_LIST, GET_MOVIE_DETAILS, GET_SHOW_SCHEDULE, GET_TICKET_ROOM } from "../Const/MovieManagerConst";
 
 const stateDefault = {
     bannerList: [],
@@ -9,7 +9,8 @@ const stateDefault = {
     codeCinema: 'BHDStar',
     movieDetails: {},
     ticketRoom: {},
-    listBookingSeat: []
+    listBookingSeat: [],
+    movieInfo: {}
 }
 const MovieManagerReducer = (state = stateDefault, action) => {
     switch (action.type) {
@@ -58,6 +59,10 @@ const MovieManagerReducer = (state = stateDefault, action) => {
         }
         case BOOKING_SUCCESS: {
             state.listBookingSeat = []
+            return { ...state }
+        }
+        case GET_INFO_MOVIE: {
+            state.movieInfo = action.movieInfo
             return { ...state }
         }
         default: return { ...state }

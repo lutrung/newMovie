@@ -1,6 +1,6 @@
 import Axios from 'axios'
 import Swal from 'sweetalert2'
-import { BOOKING_SUCCESS, CHANGE_CODE_CINEMA, GET_BANNER_LIST, GET_CINEMA_BY_CODE, GET_CINEMA_SYSTEM, GET_MOVIES_LIST, GET_MOVIE_DETAILS, GET_SHOW_SCHEDULE, GET_TICKET_ROOM } from '../Const/MovieManagerConst'
+import { BOOKING_SUCCESS, CHANGE_CODE_CINEMA, GET_BANNER_LIST, GET_CINEMA_BY_CODE, GET_CINEMA_SYSTEM, GET_INFO_MOVIE, GET_MOVIES_LIST, GET_MOVIE_DETAILS, GET_SHOW_SCHEDULE, GET_TICKET_ROOM } from '../Const/MovieManagerConst'
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAxNSIsIkhldEhhblN0cmluZyI6IjIwLzA2LzIwMjIiLCJIZXRIYW5UaW1lIjoiMTY1NTY4MzIwMDAwMCIsIm5iZiI6MTYyNjI4MjAwMCwiZXhwIjoxNjU1ODMwODAwfQ.p47FFJpArherjwlM71xTzdulAQIW37pR6fRGD3t3Ji0'
 export const getBannerList = () => {
     return async (dispatch) => {
@@ -184,10 +184,51 @@ export const deleteMovie = (movieCode) => {
                 dispatch(getMovieList())
                 Swal.fire('Thông báo', 'Xóa thành công', 'success')
             }).catch((error) => {
-                console.log(error);
+                Swal.fire('Thông báo', 'Xóa thất bại', 'error')
             })
         } catch (error) {
-            Swal.fire('Thông báo', 'Đăng ký thất bại', 'error')
+            console.log(error);
+        }
+    }
+}
+export const addMovie = (dataMovie) => {
+    return async (dispatch) => {
+        try {
+            await Axios({
+                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyPhim/ThemPhimUploadHinh',
+                method: 'POST',
+                data: dataMovie,
+                headers: {
+                    TokenCybersoft: token
+                }
+            }).then((result) => {
+                dispatch(getMovieList())
+                Swal.fire('Thông báo', 'Thêm phim thành công', 'success')
+            })
+        } catch (err) {
+            console.log(err)
+            Swal.fire('Thông báo', 'Thêm phim thất bại', 'error')
+        }
+    }
+}
+export const getInfoMovie = (movieCode) => {
+    return async (dispatch) => {
+        try {
+            await Axios({
+                url: `https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${movieCode}`,
+                method: 'GET',
+                headers: {
+                    TokenCybersoft: token
+                }
+            }).then((result) => {
+                dispatch({
+                    type: GET_INFO_MOVIE,
+                    movieInfo: result.data.content
+                })
+                console.log(result);
+            })
+        } catch (err) {
+            console.log(err)
         }
     }
 }
