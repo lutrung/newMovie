@@ -1,4 +1,4 @@
-// import './css/main.css'
+import './css/main.css'
 import React, { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
@@ -8,7 +8,7 @@ import AdminMovieManager from './Pages/Admin/Admin-MovieManager';
 import HomePage from './Pages/HomePage/homePage';
 import MovieDetails from './Pages/MovieDetails/MovieDetails';
 import { getMovieList } from './Redux/Actions/MovieManagerActions';
-import './Sass/main.css';
+// import './Sass/main.css';
 const HomeTemplates = React.lazy(() => import('./Templates/HomeTemplates'));
 const AdminTemplates = React.lazy(() => import('./Templates/AdminTemplates'));
 const SignIn = React.lazy(() => import('./Pages/User/SignIn'));

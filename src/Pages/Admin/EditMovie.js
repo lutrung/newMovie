@@ -12,17 +12,13 @@ import TextField from '@mui/material/TextField';
 import moment from 'moment';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import imgEmpty from '../../Assets/Images/unnamed.png';
-import { getInfoMovie } from '../../Redux/Actions/MovieManagerActions';
-
-
-
+import { getInfoMovie, updateMovie } from '../../Redux/Actions/MovieManagerActions';
 
 
 export default function EditMovie({ open, handleClose, movieCode }) {
     const movieInfo = useSelector(state => state.MovieManagerReducer.movieInfo)
-    console.log(movieInfo);
     const dispatch = useDispatch()
+    const [imgSrc, setImgSrc] = useState();
     const [dataMovie, setDataMovie] = useState({
         tenPhim: '',
         trailer: '',
@@ -33,6 +29,7 @@ export default function EditMovie({ open, handleClose, movieCode }) {
         biDanh: '',
         maNhom: 'GP01',
     })
+    console.log(movieInfo);
     const inputAdd = useRef(null);
     const onAdd = () => {
         inputAdd.current.click();
@@ -52,17 +49,18 @@ export default function EditMovie({ open, handleClose, movieCode }) {
             if (newImgSrc.type === 'image/png' || newImgSrc.type === 'image/jpg' || newImgSrc.type === 'image/gif' || newImgSrc.type === 'image/jpeg') {
                 let newDataMovie = { ...dataMovie, [name]: newImgSrc }
                 setDataMovie(newDataMovie)
-                // setImgSrc(URL.createObjectURL(newImgSrc))
+                setImgSrc(URL.createObjectURL(newImgSrc))
             }
         }
     }
 
     const onSubmitt = async () => {
-        // let form_data = new FormData();
-        // for (let key in dataMovie) {
-        //     form_data.append(key, dataMovie[key]);
-        // }
-        // dispatch(await addMovie(form_data))
+        let form_data = new FormData();
+        for (let key in dataMovie) {
+            form_data.append(key, dataMovie[key]);
+        }
+
+        dispatch(await updateMovie(form_data))
         // handleClose()
         console.log(dataMovie);
     }
@@ -71,13 +69,14 @@ export default function EditMovie({ open, handleClose, movieCode }) {
             let newDataUpdate = {
                 tenPhim: movieInfo.tenPhim,
                 trailer: movieInfo.trailer,
-                ngayKhoiChieu: movieInfo.ngayKhoiChieu,
+                ngayKhoiChieu: moment(movieInfo.ngayKhoiChieu).format('DD/MM/YYYY'),
                 danhGia: movieInfo.danhGia,
                 moTa: movieInfo.moTa,
                 hinhAnh: movieInfo.hinhAnh,
                 biDanh: movieInfo.biDanh,
                 maNhom: movieInfo.maNhom,
             }
+            setImgSrc(movieInfo.hinhAnh)
             setDataMovie(newDataUpdate)
         }
     }, [movieInfo])
@@ -132,7 +131,7 @@ export default function EditMovie({ open, handleClose, movieCode }) {
                             Tải ảnh lên
                         </Button>
                         <input name='hinhAnh' type='file' hidden ref={inputAdd} onChange={onChangeInput} />
-                        <img style={{ width: '100%' }} src={dataMovie.hinhAnh} alt='...' />
+                        <img style={{ width: '100%' }} src={imgSrc} alt='...' />
                     </div>
                 </Box>
             </DialogContent>

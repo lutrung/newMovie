@@ -225,6 +225,24 @@ export const getInfoMovie = (movieCode) => {
                     type: GET_INFO_MOVIE,
                     movieInfo: result.data.content
                 })
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+}
+export const updateMovie = (dataMovie) => {
+    return async (dispatch) => {
+        try {
+            await Axios({
+                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyPhim/CapNhatPhimUpload',
+                method: 'POST',
+                data: dataMovie,
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
+                    TokenCybersoft: token
+                }
+            }).then((result) => {
                 console.log(result);
             })
         } catch (err) {

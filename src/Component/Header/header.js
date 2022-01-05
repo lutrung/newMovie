@@ -36,7 +36,7 @@ export default function Header() {
             <ul className='header-user'>
                 {userSignIn.hoTen ? <Fragment>
                     <img className='user-logo' src='https://picsum.photos/35/35' alt='' style={{ borderRadius: '50%' }} />
-                    <li className='header-item header-item-signin'>Hello {userSignIn.hoTen}</li>
+                    <li className='header-item'><NavLink className='header-item-signin' to={userSignIn.maLoaiNguoiDung === 'QuanTri' ? '/admin' : '/thongtincanhan'}>Hello {userSignIn.hoTen}</NavLink></li>
                     <li className='header-item' onClick={() => SignOut()}>Đăng Xuất</li>
                 </Fragment>
                     :
@@ -81,7 +81,6 @@ export default function Header() {
                     </ul>
                 </nav>
             </div>
-
         </div>
     )
 }

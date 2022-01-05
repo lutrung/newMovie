@@ -17,7 +17,6 @@ body {
 
 a {
   text-decoration: none;
-  color: black !important;
 }
 
 ul,
@@ -156,9 +155,14 @@ li {
   margin: 0 20px 0 0;
 }
 
+.header .header-menu .header-item a,
+.header .header-user .header-item a {
+  color: black;
+}
+
 .header .header-menu .header-item-signin,
 .header .header-user .header-item-signin {
-  color: red;
+  color: red !important;
 }
 
 .header .header-user {
@@ -855,6 +859,7 @@ li {
 }
 
 .movieTheater .movieTheater-container .theater-showtime .item-info .info-bottom .btn-time {
+  color: black;
   display: inline-block;
   font-weight: bold;
   font-size: 15px;
@@ -1551,6 +1556,7 @@ li {
 }
 
 .movieDetails .movieDetailsShowTime .movieDetailsShowTime-container .showTime-details .showTime-container .showTime-cinema .theater-item .info-bottom .btn-time {
+  color: black;
   display: inline-block;
   font-weight: bold;
   font-size: 15px;
@@ -2047,5 +2053,13 @@ li {
   .ticketRoom .ticketRoom-right .ticketInfo .ticketInfo-top .ticketInfo-details .details-right {
     width: 100%;
   }
+}
+
+.adminMovieManager .titile {
+  font-size: 30px;
+}
+
+.adminMovieManager .adminEdit {
+  text-align: center;
 }
 /*# sourceMappingURL=main.css.map */
