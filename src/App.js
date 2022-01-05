@@ -4,10 +4,11 @@ import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import AdminMovieManager from './Pages/Admin/Admin-MovieManager';
 import HomePage from './Pages/HomePage/homePage';
 import MovieDetails from './Pages/MovieDetails/MovieDetails';
 import { getMovieList } from './Redux/Actions/MovieManagerActions';
+import AdminMovieManager from './Pages/Admin/Movie/Admin-MovieManager';
+import AdminUserManager from './Pages/Admin/User/Admin-UserManager';
 // import './Sass/main.css';
 const HomeTemplates = React.lazy(() => import('./Templates/HomeTemplates'));
 const AdminTemplates = React.lazy(() => import('./Templates/AdminTemplates'));
@@ -47,6 +48,7 @@ function App() {
           }}></Route>
           <AdminTemplates exact path="/admin" Component={AdminMovieManager} />
           <AdminTemplates exact path="/admin/quanlyphim" Component={AdminMovieManager} />
+          <AdminTemplates exact path="/admin/quanlynguoidung" Component={AdminUserManager} />
         </Switch>
       </Suspense>
     </div>

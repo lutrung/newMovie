@@ -11,4 +11,8 @@ export const BOOKING_SEAT = 'BOOKING_SEAT';
 export const GET_TICKET_ROOM = 'GET_TICKET_ROOM';
 export const BOOKING_SUCCESS = 'BOOKING_SUCCESS';
 export const GET_INFO_MOVIE = 'GET_INFO_MOVIE';
+export const USER_LIST = 'USER_LIST';
+export const USER_UPDATE = 'USER_UPDATE';
+
+
 

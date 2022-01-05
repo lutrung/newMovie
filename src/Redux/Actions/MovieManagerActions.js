@@ -232,7 +232,7 @@ export const getInfoMovie = (movieCode) => {
     }
 }
 export const updateMovie = (dataMovie) => {
-    return async (dispatch) => {
+    return async () => {
         try {
             await Axios({
                 url: 'https://movienew.cybersoft.edu.vn/api/QuanLyPhim/CapNhatPhimUpload',

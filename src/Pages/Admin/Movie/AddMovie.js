@@ -1,24 +1,26 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import DatePicker from '@mui/lab/DatePicker';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import React, { useRef, useState } from 'react';
+import imgEmpty from '../../../Assets/Images/unnamed.png'
+import moment from 'moment';
 import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import TextField from '@mui/material/TextField';
-import moment from 'moment';
-import React, { useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getInfoMovie, updateMovie } from '../../Redux/Actions/MovieManagerActions';
 
 
-export default function EditMovie({ open, handleClose, movieCode }) {
-    const movieInfo = useSelector(state => state.MovieManagerReducer.movieInfo)
+
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DatePicker from '@mui/lab/DatePicker';
+import { useDispatch } from 'react-redux';
+import { addMovie } from '../../../Redux/Actions/MovieManagerActions';
+
+
+export default function AddMovie({ open, handleClose }) {
     const dispatch = useDispatch()
-    const [imgSrc, setImgSrc] = useState();
     const [dataMovie, setDataMovie] = useState({
         tenPhim: '',
         trailer: '',
@@ -29,14 +31,16 @@ export default function EditMovie({ open, handleClose, movieCode }) {
         biDanh: '',
         maNhom: 'GP01',
     })
-    console.log(movieInfo);
     const inputAdd = useRef(null);
     const onAdd = () => {
         inputAdd.current.click();
     };
+    const [date, setDate] = React.useState(null);
+    const [imgSrc, setImgSrc] = useState(imgEmpty);
 
     const onSelectDate = (newDate) => {
         let newDataMovie = { ...dataMovie, ngayKhoiChieu: moment(newDate).format('DD/MM/YYYY') }
+        setDate(newDate);
         setDataMovie(newDataMovie)
     }
     const onChangeInput = (event) => {
@@ -54,40 +58,15 @@ export default function EditMovie({ open, handleClose, movieCode }) {
         }
     }
 
-    const onSubmitt = async () => {
+    const onSubmit = async () => {
+
         let form_data = new FormData();
         for (let key in dataMovie) {
             form_data.append(key, dataMovie[key]);
         }
-
-        dispatch(await updateMovie(form_data))
-        // handleClose()
-        console.log(dataMovie);
+        dispatch(await addMovie(form_data))
+        handleClose()
     }
-    useEffect(() => {
-        if (movieInfo) {
-            let newDataUpdate = {
-                tenPhim: movieInfo.tenPhim,
-                trailer: movieInfo.trailer,
-                ngayKhoiChieu: moment(movieInfo.ngayKhoiChieu).format('DD/MM/YYYY'),
-                danhGia: movieInfo.danhGia,
-                moTa: movieInfo.moTa,
-                hinhAnh: movieInfo.hinhAnh,
-                biDanh: movieInfo.biDanh,
-                maNhom: movieInfo.maNhom,
-            }
-            setImgSrc(movieInfo.hinhAnh)
-            setDataMovie(newDataUpdate)
-        }
-    }, [movieInfo])
-    useEffect(() => {
-        if (movieCode) {
-            async function fetchData() {
-                dispatch(await getInfoMovie(movieCode))
-            }
-            fetchData();
-        }
-    }, [movieCode])
     return (
         <Dialog
             fullWidth
@@ -97,7 +76,7 @@ export default function EditMovie({ open, handleClose, movieCode }) {
             onClose={handleClose}
             aria-describedby="alert-dialog-slide-description"
         >
-            <DialogTitle sx={{ fontSize: '30px' }}>{"Sửa phim"}</DialogTitle>
+            <DialogTitle sx={{ fontSize: '30px' }}>{"Thêm phim"}</DialogTitle>
             <DialogContent dividers>
                 <Box sx={{
                     display: 'flex',
@@ -121,7 +100,7 @@ export default function EditMovie({ open, handleClose, movieCode }) {
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DatePicker
                                 label="Ngày khởi chiếu"
-                                value={dataMovie.ngayKhoiChieu}
+                                value={date}
                                 name='ngayKhoiChieu'
                                 onChange={(newDate) => onSelectDate(newDate)}
                                 renderInput={(params) => <TextField {...params} />}
@@ -137,7 +116,7 @@ export default function EditMovie({ open, handleClose, movieCode }) {
             </DialogContent>
             <DialogActions>
                 <Button variant='contained' color='error' onClick={handleClose} >Hủy</Button>
-                <Button variant='contained' color='primary' onClick={onSubmitt} type='submit'>Cập nhật</Button>
+                <Button variant='contained' color='primary' onClick={onSubmit} type='submit'>Thêm</Button>
             </DialogActions>
         </Dialog>
 

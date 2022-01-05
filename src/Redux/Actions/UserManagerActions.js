@@ -1,7 +1,7 @@
 import Axios from "axios"
 import Swal from "sweetalert2"
 import { history } from '../../Util/history'
-import { SIGN_IN } from "../Const/MovieManagerConst"
+import { SIGN_IN, USER_LIST, USER_UPDATE } from "../Const/MovieManagerConst"
 
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAxNSIsIkhldEhhblN0cmluZyI6IjIwLzA2LzIwMjIiLCJIZXRIYW5UaW1lIjoiMTY1NTY4MzIwMDAwMCIsIm5iZiI6MTYyNjI4MjAwMCwiZXhwIjoxNjU1ODMwODAwfQ.p47FFJpArherjwlM71xTzdulAQIW37pR6fRGD3t3Ji0'
 export const signInAction = (accounts) => {
@@ -46,6 +46,106 @@ export const signUpAction = (accounts) => {
             })
         } catch (error) {
             Swal.fire('Thông báo', 'Đăng ký thất bại', 'error')
+        }
+    }
+}
+export const getUserList = () => {
+    return async (dispatch) => {
+        try {
+            let result = await Axios({
+                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01',
+                method: 'GET',
+                headers: {
+                    TokenCybersoft: token
+                }
+            })
+            dispatch({
+                type: USER_LIST,
+                userList: result.data.content,
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+export const deleteUser = (account) => {
+    return async (dispatch) => {
+        try {
+            await Axios({
+                url: `https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${account}`,
+                method: 'DELETE',
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
+                    TokenCybersoft: token
+                }
+            })
+            dispatch(getUserList())
+            Swal.fire('Thông báo', 'Xóa thành công', 'success')
+        } catch (error) {
+            Swal.fire('Thông báo', 'Xóa thất bại', 'error')
+            console.log(error);
+        }
+    }
+}
+export const addUser = (formUser) => {
+    return async (dispatch) => {
+        try {
+            await Axios({
+                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung',
+                method: 'POST',
+                data: formUser,
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
+                    TokenCybersoft: token
+                }
+            })
+            dispatch(getUserList())
+            Swal.fire('Thông báo', 'Thêm thành công', 'success')
+        } catch (error) {
+            Swal.fire('Thông báo', 'Thêm thất bại', 'error')
+            console.log(error);
+        }
+    }
+}
+export const getUserUpdate = (user) => {
+    return async (dispatch) => {
+        try {
+            await Axios({
+                url: `https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${user}`,
+                method: 'POST',
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
+                    TokenCybersoft: token
+                }
+            }).then((result) => {
+                dispatch({
+                    type: USER_UPDATE,
+                    userUpdate: result.data.content,
+                })
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+export const updateUser = (formUser) => {
+    return async (dispatch) => {
+
+        try {
+            await Axios({
+                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung',
+                method: 'PUT',
+                data: formUser,
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
+                    TokenCybersoft: token
+                }
+            })
+            dispatch(getUserList())
+            Swal.fire('Thông báo', 'Cập nhật thành công', 'success')
+        } catch (error) {
+            Swal.fire('Thông báo', 'Cập nhật thất bại', 'error')
+            console.log(error);
         }
     }
 }

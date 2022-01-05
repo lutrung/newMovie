@@ -7,7 +7,7 @@ import { Input, Table } from 'antd';
 import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
-import { deleteMovie } from '../../Redux/Actions/MovieManagerActions';
+import { deleteMovie, getInfoMovie } from '../../../Redux/Actions/MovieManagerActions';
 import AddMovie from './AddMovie';
 import EditMovie from './EditMovie';
 
@@ -90,8 +90,8 @@ export default function AdminMovieManager() {
             title: 'Mô tả',
             dataIndex: 'moTa',
             width: '25%',
-            render: (moTa) => {
-                return <Fragment>
+            render: (moTa, index) => {
+                return <Fragment key={index}>
                     {moTa.length > 50 ? moTa.substr(0, 100) + '...' : moTa}
                 </Fragment>
             }
@@ -101,8 +101,8 @@ export default function AdminMovieManager() {
             className: 'adminEdit',
             dataIndex: 'maPhim',
             width: '20%',
-            render: (maPhim) => {
-                return <div className='adminEdit'>
+            render: (maPhim, index) => {
+                return <div key={index} className='adminEdit'>
                     <IconButton color='primary' aria-label="primary" size="large" onClick={() => editMovie(maPhim)}>
                         <EditIcon />
                     </IconButton>
@@ -126,8 +126,8 @@ export default function AdminMovieManager() {
             {movieCode ? <EditMovie open={open} handleClose={handleClose} movieCode={movieCode} /> : <AddMovie open={open} handleClose={handleClose} />}
             <Search
                 className='mt-4 mb-4'
-                placeholder="Tìm kiếm"
-                enterButton={<SearchIcon />}
+                placeholder="Nhập tên phim cần tìm"
+                enterButton="Tìm kiếm"
                 size="large"
                 onSearch={(keyWord) => onSearch(keyWord)}
             />
