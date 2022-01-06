@@ -5,12 +5,12 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
+import { isEmpty } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import MenuItem from '@mui/material/MenuItem';
-import { addUser, getUserUpdate, updateUser } from '../../../Redux/Actions/UserManagerActions';
-import { isEmpty } from 'lodash';
+import { getUserUpdate, updateUser } from '../../../Redux/Actions/UserManagerActions';
 const loaiNguoiDung = [
     {
         value: 'KhachHang',
@@ -62,7 +62,7 @@ export default function UpdateUser({ open, handleClose, user }) {
         if (!isEmpty(user)) {
             dispatch(getUserUpdate(user))
         }
-    }, [user])
+    }, [dispatch, user])
     return (
         <Dialog
             fullWidth

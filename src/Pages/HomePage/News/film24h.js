@@ -56,8 +56,8 @@ export default function Film24h() {
             <div className='listItem'>
                 {listNews.slice(0, moreItem).map((item, index) => {
                     return <div key={index} className='film24h-item'>
-                        <a target='_blank' href={item.link}><img src={item.img} /></a>
-                        <a target='_blank' href={item.link}><h2 className='item-title'>{item.title}</h2></a>
+                        <a target='_blank' href={item.link} rel="noreferrer"><img src={item.img} alt='...' /></a>
+                        <a target='_blank' href={item.link} rel="noreferrer"><h2 className='item-title'>{item.title}</h2></a>
                         <p className='item-detail'>{item.detail}</p>
                     </div>
                 })}

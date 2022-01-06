@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import * as yup from 'yup';
 import background from '../../Assets/Images/background-signIn.jpg';
 import logo from '../../Assets/Images/logo.png';
-import { signInAction, signUpAction } from '../../Redux/Actions/UserManagerActions';
+import { signUpAction } from '../../Redux/Actions/UserManagerActions';
 const signUpUserSchema = yup.object().shape({
     taiKhoan: yup.string().required('*Tài khoản không được bỏ trống!'),
     matKhau: yup.string().required('*Mật khẩu không được bỏ trống!'),

@@ -91,7 +91,7 @@ export default function EditMovie({ open, handleClose, movieCode }) {
             }
             fetchData();
         }
-    }, [movieCode])
+    }, [dispatch, movieCode])
     return (
         <Dialog
             fullWidth

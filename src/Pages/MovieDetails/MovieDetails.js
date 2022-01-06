@@ -15,7 +15,7 @@ export default function MovieDetails(props) {
             }
         }
         fetchData();
-    }, [movieCode])
+    }, [dispatch, movieCode])
     return (
         <div className='movieDetails'>
             <Info movieDetails={movieDetails} />

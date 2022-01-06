@@ -12,11 +12,10 @@ export const getBannerList = () => {
                     TokenCybersoft: token
                 }
 
-            }).then((result) => {
-                dispatch({
-                    type: GET_BANNER_LIST,
-                    bannerList: result.data.content
-                })
+            })
+            dispatch({
+                type: GET_BANNER_LIST,
+                bannerList: result.data.content
             })
         } catch (err) {
             console.log('Thất bại', err.response)
@@ -247,6 +246,27 @@ export const updateMovie = (dataMovie) => {
             })
         } catch (err) {
             console.log(err)
+        }
+    }
+}
+export const createShowTime = (formCreate) => {
+    return async () => {
+        console.log(formCreate);
+        try {
+            await Axios({
+                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyDatVe/TaoLichChieu',
+                method: 'POST',
+                data: formCreate,
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
+                    TokenCybersoft: token
+                }
+            })
+            Swal.fire('Thông báo', 'Tạo thành công', 'success')
+        } catch (err) {
+            console.log(err)
+            Swal.fire('Thông báo', 'Tạo thất bại', 'error')
+
         }
     }
 }

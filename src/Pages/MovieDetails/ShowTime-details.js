@@ -47,7 +47,7 @@ function ShowTimeDetails({ movieDetails }) {
                                                 {theaterSystem.cumRapChieu?.map((theater, index) => {
                                                     return <div key={index} className='theater-item'>
                                                         <div className='info-top'>
-                                                            <img src={theater.hinhAnh} />
+                                                            <img src={theater.hinhAnh} alt='...' />
                                                             <div>
                                                                 <h3 className='top-name'>{theater.tenCumRap}</h3>
                                                                 <p className='top-rate'>157 phút - TIX 0 - IMDb 6.8</p>

@@ -13,6 +13,7 @@ export const BOOKING_SUCCESS = 'BOOKING_SUCCESS';
 export const GET_INFO_MOVIE = 'GET_INFO_MOVIE';
 export const USER_LIST = 'USER_LIST';
 export const USER_UPDATE = 'USER_UPDATE';
+export const PERSONAL_INFO = 'PERSONAL_INFO';
 
 
 

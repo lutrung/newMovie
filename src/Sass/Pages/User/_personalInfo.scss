@@ -1,0 +1,41 @@
+.personalInfo {
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  .title {
+    color: #fa5238;
+  }
+  .personalInfo-left {
+    position: relative;
+    height: 100%;
+    width: 30%;
+    border-right: 5px dashed #d4d4d4;
+    padding: 20px;
+    text-align: center;
+    .left-avatar {
+      margin: 20px 0;
+    }
+    .left-table {
+      text-align: left;
+      font-size: 17px;
+    }
+    .left-goback {
+      position: absolute;
+      color: black;
+      right: 20px;
+      bottom: 20px;
+    }
+  }
+  .personalInfo-right {
+    height: 100%;
+    overflow-y: scroll;
+    width: 70%;
+    padding: 20px;
+    text-align: center;
+    .right-table {
+      font-size: 15px;
+      margin: 20px 0;
+    }
+  }
+}

@@ -40,7 +40,7 @@ function TicketInfo({ showtimeCode }) {
                     return total += seat.ticketPrice
                 }, 0).toLocaleString()} VND</h2>
                 <div className='ticketInfo-details'>
-                    <img className='details-left' src='https://picsum.photos/200/300' alt='...' />
+                    <img className='details-left' src={ticketRoom.thongTinPhim?.hinhAnh} alt='...' />
                     <div className='details-right'>
                         <h2 className='right-nameMovie'>{ticketRoom.thongTinPhim?.tenPhim}</h2>
                         <div>
@@ -74,7 +74,7 @@ function TicketInfo({ showtimeCode }) {
                     </div>
                 </div>
             </div>
-            <button disabled={listBookingSeat.length == 0 ? 'disabled' : ''} className='ticketInfo-btn' onClick={() => bookTickets()}>Đặt vé</button>
+            <button disabled={listBookingSeat.length === 0 ? 'disabled' : ''} className='ticketInfo-btn' onClick={() => bookTickets()}>Đặt vé</button>
         </div>
     )
 }

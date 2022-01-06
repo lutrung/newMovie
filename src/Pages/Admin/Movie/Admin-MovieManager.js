@@ -1,14 +1,14 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import { Input, Table } from 'antd';
 import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
-import { deleteMovie, getInfoMovie } from '../../../Redux/Actions/MovieManagerActions';
+import { deleteMovie } from '../../../Redux/Actions/MovieManagerActions';
 import AddMovie from './AddMovie';
+import CreateShowtime from './Create-Showtime';
 import EditMovie from './EditMovie';
 
 export default function AdminMovieManager() {
@@ -19,12 +19,19 @@ export default function AdminMovieManager() {
     const handleClickOpen = () => {
         setOpen(true);
     };
+
     const handleClose = () => {
         setOpen(false);
         setMovieCode()
     };
-
-
+    const [openCreateST, setOpenCreateST] = useState(false)
+    const handleClickOpenCreateST = (movieCode) => {
+        setMovieCode(movieCode)
+        setOpenCreateST(true);
+    };
+    const handleCloseCreateST = (movieCode) => {
+        setOpenCreateST(false);
+    };
     const dispatch = useDispatch()
     const { Search } = Input;
     const [data, setData] = useState()
@@ -109,14 +116,13 @@ export default function AdminMovieManager() {
                     <IconButton color='error' aria-label="delete" size="large" onClick={() => onDelete(maPhim)}>
                         <DeleteIcon />
                     </IconButton>
-
+                    <Button variant="contained" color='success' onClick={() => handleClickOpenCreateST(maPhim)}>
+                        Tạo lịch chiếu
+                    </Button>
                 </div>
             }
         },
     ];
-
-
-
     return (
         <div className='adminMovieManager'>
             <h2 className='titile'>Quản lý phim</h2>
@@ -124,6 +130,7 @@ export default function AdminMovieManager() {
                 Thêm phim
             </Button>
             {movieCode ? <EditMovie open={open} handleClose={handleClose} movieCode={movieCode} /> : <AddMovie open={open} handleClose={handleClose} />}
+            <CreateShowtime open={openCreateST} handleClose={handleCloseCreateST} movieCode={movieCode} />
             <Search
                 className='mt-4 mb-4'
                 placeholder="Nhập tên phim cần tìm"

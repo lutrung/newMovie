@@ -27,7 +27,7 @@ export default function ShowTimeItem({ item, showing }) {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <iframe width="100%" height="100%" src={item.trailer} frameborder="0" allowfullscreen>
+                    <iframe title='trailer' width="100%" height="100%" src={item.trailer} frameborder="0" allowfullscreen>
                     </iframe>
                     <p>{item.trailer}</p>
                 </Box>
@@ -36,7 +36,7 @@ export default function ShowTimeItem({ item, showing }) {
                 <div className='item-thumbnail' style={{ backgroundImage: `url(${item.hinhAnh})` }}>
                     <div className='item-overlay'></div>
                     <button className='item-play' onClick={handleOpen}>
-                        <img src={playIcon} style={{ width: '100%' }} />
+                        <img src={playIcon} style={{ width: '100%' }} alt='...' />
                     </button>
                 </div>
                 <div className='item-info'>

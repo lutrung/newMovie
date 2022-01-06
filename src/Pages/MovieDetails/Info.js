@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getMovieDetails } from '../../Redux/Actions/MovieManagerActions'
-import background from '../../Assets/Images/backapp.jpg'
 import moment from 'moment'
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import React, { useEffect } from 'react'
+import { CircularProgressbar } from 'react-circular-progressbar'
+import 'react-circular-progressbar/dist/styles.css'
+import background from '../../Assets/Images/backapp.jpg'
 function Info({ movieDetails }) {
     useEffect(() => {
         window.scrollTo(0, 0)

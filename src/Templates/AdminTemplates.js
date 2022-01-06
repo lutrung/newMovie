@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
-import { NavLink, Route } from "react-router-dom";
-import logo from '../Assets/Images/logo.png'
-import { Layout, Menu, Breadcrumb } from 'antd';
-import { TeamOutlined, VideoCameraOutlined, } from '@ant-design/icons';
+import { TeamOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import CameraOutlinedIcon from '@mui/icons-material/CameraOutlined';
+import { Breadcrumb, Layout, Menu } from 'antd';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { NavLink, Route } from "react-router-dom";
 import Swal from 'sweetalert2';
-const { Header, Content, Footer, Sider } = Layout;
+import logo from '../Assets/Images/logo.png';
+const { Header, Content, Sider } = Layout;
 const { SubMenu } = Menu;
 export default function AdminTemplates(props) {
     const userSignIn = useSelector(state => state.UserManagerReducer.userSignIn)
@@ -57,7 +58,7 @@ export default function AdminTemplates(props) {
                         <Header
                             className="site-layout-background"
                             style={{ padding: 0, textAlign: 'center', color: '#fff', fontSize: 20 }}
-                        >Lư Trung Cinema</Header>
+                        >Lư Trung <CameraOutlinedIcon /> Cinema </Header>
                         <Content style={{ margin: "0 16px" }}>
                             <Breadcrumb style={{ margin: "16px 0" }}></Breadcrumb>
                             <div

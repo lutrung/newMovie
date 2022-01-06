@@ -1,6 +1,5 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import { Input, Table } from 'antd';
@@ -113,14 +112,13 @@ export default function AdminUserManager() {
                 </div>
             }
         },
-
     ];
     useEffect(() => {
         setUserList(userListRedux)
     }, [userListRedux])
     useEffect(() => {
         dispatch(getUserList())
-    }, [])
+    }, [dispatch])
     return (
         <div className='adminMovieManager'>
             <h2 className='titile'>Quản người dùng</h2>

@@ -2,14 +2,13 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import React from 'react';
-import { useSelector } from 'react-redux';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import playIcon from '../../../Assets/Images/playIcon.png';
 import carousel1 from '../../../Assets/Images/carousel1.jpg';
 import carousel2 from '../../../Assets/Images/carousel2.jpg';
 import carousel3 from '../../../Assets/Images/carousel3.jpg';
+import playIcon from '../../../Assets/Images/playIcon.png';
 
 const style = {
     position: 'absolute',

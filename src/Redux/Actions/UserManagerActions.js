@@ -1,7 +1,7 @@
 import Axios from "axios"
 import Swal from "sweetalert2"
 import { history } from '../../Util/history'
-import { SIGN_IN, USER_LIST, USER_UPDATE } from "../Const/MovieManagerConst"
+import { PERSONAL_INFO, SIGN_IN, USER_LIST, USER_UPDATE } from "../Const/MovieManagerConst"
 
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAxNSIsIkhldEhhblN0cmluZyI6IjIwLzA2LzIwMjIiLCJIZXRIYW5UaW1lIjoiMTY1NTY4MzIwMDAwMCIsIm5iZiI6MTYyNjI4MjAwMCwiZXhwIjoxNjU1ODMwODAwfQ.p47FFJpArherjwlM71xTzdulAQIW37pR6fRGD3t3Ji0'
 export const signInAction = (accounts) => {
@@ -130,7 +130,46 @@ export const getUserUpdate = (user) => {
 }
 export const updateUser = (formUser) => {
     return async (dispatch) => {
-
+        try {
+            await Axios({
+                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung',
+                method: 'POST',
+                data: formUser,
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
+                    TokenCybersoft: token
+                }
+            })
+            dispatch(getUserList())
+            Swal.fire('Thông báo', 'Cập nhật thành công', 'success')
+        } catch (error) {
+            Swal.fire('Thông báo', 'Cập nhật thất bại', 'error')
+            console.log(error);
+        }
+    }
+}
+export const getPersonalInfo = () => {
+    return async (dispatch) => {
+        try {
+            let result = await Axios({
+                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/ThongTinTaiKhoan',
+                method: 'POST',
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
+                    TokenCybersoft: token
+                }
+            })
+            dispatch({
+                type: PERSONAL_INFO,
+                personalInfo: result.data.content
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+export const updateInfo = (formUser) => {
+    return async (dispatch) => {
         try {
             await Axios({
                 url: 'https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung',
@@ -141,7 +180,7 @@ export const updateUser = (formUser) => {
                     TokenCybersoft: token
                 }
             })
-            dispatch(getUserList())
+            dispatch(getPersonalInfo())
             Swal.fire('Thông báo', 'Cập nhật thành công', 'success')
         } catch (error) {
             Swal.fire('Thông báo', 'Cập nhật thất bại', 'error')

@@ -52,7 +52,7 @@ function TicketRoom({ props }) {
             }
             fetchData();
         }
-    }, [])
+    }, [dispatch, showtimeCode])
     return (
         <div className='ticketRoom'>
             <div className='ticketRoom-left'>

@@ -1,4 +1,5 @@
 import './css/main.css'
+import './Sass/main.css';
 import React, { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
@@ -9,7 +10,7 @@ import MovieDetails from './Pages/MovieDetails/MovieDetails';
 import { getMovieList } from './Redux/Actions/MovieManagerActions';
 import AdminMovieManager from './Pages/Admin/Movie/Admin-MovieManager';
 import AdminUserManager from './Pages/Admin/User/Admin-UserManager';
-// import './Sass/main.css';
+import PersonalInfo from './Pages/User/Personal-Info';
 const HomeTemplates = React.lazy(() => import('./Templates/HomeTemplates'));
 const AdminTemplates = React.lazy(() => import('./Templates/AdminTemplates'));
 const SignIn = React.lazy(() => import('./Pages/User/SignIn'));
@@ -23,7 +24,7 @@ function App() {
     }
     fetchData();
     window.scrollTo(0, 0)
-  }, [])
+  }, [dispatch])
   return (
     <div className="App">
       <Suspense fallback={<div className="sk-cube-grid">
@@ -41,6 +42,7 @@ function App() {
           <HomeTemplates exact path="/" Component={HomePage} />
           <HomeTemplates exact path="/trangchu" Component={HomePage} />
           <HomeTemplates exact path="/chitietphim/:movieCode" Component={MovieDetails} />
+          <Route exact path="/thongtincanhan" component={PersonalInfo} />
           <Route exact path='/dangnhap' component={SignIn} />
           <Route exact path='/dangky' component={SignUp} />
           <Route exact path='/phongve/:showtimeCode' render={(props) => {

@@ -58,8 +58,7 @@ export default function MovieTheater() {
             dispatch(await getShowSchedule(codeCinema))
         }
         fetchData()
-    }, []);
-
+    }, [codeCinema, dispatch]);
     return (
         <div id='cumrap' className='movieTheater' style={{ backgroundImage: `url(${background})` }}>
             <div className='movieTheater-container'>
@@ -67,7 +66,7 @@ export default function MovieTheater() {
                     {cinemaSystem?.map((item, index) => {
                         return (
                             <div key={index} className={`logo-item ${index === 0 ? 'active' : null}`} onClick={() => onChangeCluster(index, item.maHeThongRap)}>
-                                <img src={item.logo} width={50} height={50} />
+                                <img src={item.logo} width={50} height={50} alt='...' />
                             </div>
                         )
                     })}
@@ -76,7 +75,7 @@ export default function MovieTheater() {
                     {cinemaByCode?.slice(0, 10).map((item, index) => {
                         return (
                             <div key={index} className='cinemaByCode-item' onClick={() => onChangeShowTime(index, item.maCumRap)}>
-                                <img className='cinemaByCode-logo' src='https://s3img.vcdn.vn/123phim/2021/01/bhd-star-bitexco-16105952137769.png' />
+                                <img className='cinemaByCode-logo' src='https://s3img.vcdn.vn/123phim/2021/01/bhd-star-bitexco-16105952137769.png' alt='...' />
                                 <div className='cinemaByCode-info'>
                                     <p title={item.tenCumRap} className='info-name'>{item.tenCumRap}</p>
                                     <p title={item.diaChi} className='info-address'>{item.diaChi}</p>
