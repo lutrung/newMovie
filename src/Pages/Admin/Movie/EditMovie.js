@@ -54,7 +54,7 @@ export default function EditMovie({ open, handleClose, movieCode }) {
             }
         }
     }
-    const onSubmit = async () => {
+    const onSubmit = () => {
         // ------xoa khoang trang thua
         Object.keys(dataMovie).map((key) => {
             return dataMovie[key] = String(dataMovie[key]).trim()
@@ -64,8 +64,8 @@ export default function EditMovie({ open, handleClose, movieCode }) {
         for (let key in dataMovie) {
             form_data.append(key, dataMovie[key]);
         }
-        dispatch(await updateMovie(form_data))
-        // handleClose()
+        dispatch(updateMovie(form_data))
+        handleClose()
     }
     useEffect(() => {
         if (!isEmpty(movieInfo)) {
@@ -114,12 +114,12 @@ export default function EditMovie({ open, handleClose, movieCode }) {
                     '& .MuiButton-root': { display: 'block', mb: 2, fontSize: '15px', backgroundColor: '#d7d7d7', color: '#616161', width: '100%' },
                 }}>
                     <div className='form-left'>
-                        <TextField name='tenPhim' id="outlined-basic" label="Tên Phim" variant="outlined" onChange={onChangeInput} value={dataMovie.tenPhim} defaultValue='Loading...' />
-                        <TextField name='trailer' id="outlined-basic" label="Trailer" variant="outlined" onChange={onChangeInput} value={dataMovie.trailer} defaultValue='Loading...' />
-                        <TextField name='biDanh' id="outlined-basic" label="Bí Danh" variant="outlined" onChange={onChangeInput} value={dataMovie.biDanh} defaultValue='Loading...' />
-                        <TextField name='danhGia' id="outlined-basic" label="Đánh giá" variant="outlined" type='number' onChange={onChangeInput} value={dataMovie.danhGia} defaultValue='0' />
-                        <TextField name='maNhom' id="outlined-basic" label="Mã nhóm" value='GP01' disabled variant="outlined" onChange={onChangeInput} />
-                        <TextField name='moTa' id="outlined-basic" label="Mô tả" multiline rows={3} variant="outlined" onChange={onChangeInput} value={dataMovie.moTa} defaultValue='Loading...' />
+                        <TextField name='tenPhim' label="Tên Phim" variant="outlined" onChange={onChangeInput} value={dataMovie.tenPhim} defaultValue='Loading...' />
+                        <TextField name='trailer' label="Trailer" variant="outlined" onChange={onChangeInput} value={dataMovie.trailer} defaultValue='Loading...' />
+                        <TextField name='biDanh' label="Bí Danh" variant="outlined" onChange={onChangeInput} value={dataMovie.biDanh} defaultValue='Loading...' />
+                        <TextField name='danhGia' label="Đánh giá" variant="outlined" type='number' onChange={onChangeInput} value={dataMovie.danhGia} defaultValue='0' />
+                        <TextField name='maNhom' label="Mã nhóm" value='GP01' disabled variant="outlined" onChange={onChangeInput} />
+                        <TextField name='moTa' label="Mô tả" multiline rows={3} variant="outlined" onChange={onChangeInput} value={dataMovie.moTa} defaultValue='Loading...' />
                     </div>
                     <div className='form-right'>
                         <LocalizationProvider dateAdapter={AdapterDateFns}>

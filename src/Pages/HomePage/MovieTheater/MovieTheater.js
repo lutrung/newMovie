@@ -1,10 +1,11 @@
+/* eslint-disable array-callback-return */
 import moment from 'moment';
 import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import background from '../../../Assets/Images/back-news.png';
 import { getCinemaSystem, getShowSchedule, getTheTheaterClusterByCode } from '../../../Redux/Actions/MovieManagerActions';
-export default function MovieTheater() {
+function MovieTheater() {
     const dispatch = useDispatch()
     // He Thong Rap
     const cinemaSystem = useSelector(state => state.MovieManagerReducer.cinemaSystem)
@@ -122,3 +123,4 @@ export default function MovieTheater() {
         </div>
     )
 }
+export default React.memo(MovieTheater)

@@ -85,7 +85,7 @@ function ShowTimeDetails({ movieDetails }) {
                                         <span className='title'>Đạo diễn</span>
                                     </div>
                                     <div className='col-6'>
-                                        <span className='content'>CyberSoft</span>
+                                        <span className='content'>Lư Trung</span>
                                     </div>
                                 </div>
                                 {/* ------------- */}
@@ -94,7 +94,7 @@ function ShowTimeDetails({ movieDetails }) {
                                         <span className='title'>Diễn viên</span>
                                     </div>
                                     <div className='col-6'>
-                                        <span className='content'>Lư Nguyễn Thành Trung</span>
+                                        <span className='content'>Lư Trung</span>
                                     </div>
                                 </div>
                                 {/* ------------- */}

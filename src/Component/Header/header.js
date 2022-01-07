@@ -4,6 +4,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { NavLink } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import LogoutIcon from '@mui/icons-material/Logout';
 export default function Header() {
     const userSignIn = useSelector(state => state.UserManagerReducer.userSignIn)
     const SignOut = () => {
@@ -24,9 +26,11 @@ export default function Header() {
     }
     return (
         <div className='header'>
-            <a href='/' className='header-logo'>
-                <img src={logo} alt='...' />
-            </a>
+            <div className='header-logo'>
+                <a href='/' >
+                    <img src={logo} alt='...' />
+                </a>
+            </div>
             <ul className='header-menu'>
                 <li className='header-item'><a href='#lichchieu'>Lịch chiếu</a></li>
                 <li className='header-item'><a href='#cumrap'>Cụm rạp</a></li>
@@ -79,6 +83,9 @@ export default function Header() {
                             <a href='#application' className='nav__mobile-link'>Ứng dụng</a>
                         </li>
                     </ul>
+                    {userSignIn.hoTen ? <Button className='menu-logout' variant="contained" color='inherit' onClick={() => SignOut()}>
+                        Đăng xuất &nbsp;<LogoutIcon />
+                    </Button> : null}
                 </nav>
             </div>
         </div>

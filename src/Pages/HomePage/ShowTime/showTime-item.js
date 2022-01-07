@@ -27,7 +27,7 @@ export default function ShowTimeItem({ item, showing }) {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <iframe title='trailer' width="100%" height="100%" src={item.trailer} frameborder="0" allowfullscreen>
+                    <iframe title='trailer' width="100%" height="100%" src={item.trailer} frameBorder="0" allowFullScreen>
                     </iframe>
                     <p>{item.trailer}</p>
                 </Box>

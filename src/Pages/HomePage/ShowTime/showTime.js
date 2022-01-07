@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import Slider from "react-slick";
 import ShowTimeItem from './showTime-item';
 const { TabPane } = Tabs;
-export default function ShowTime() {
+function ShowTime() {
     const settings = {
         rows: 2,
         dots: false,
@@ -63,3 +63,4 @@ export default function ShowTime() {
         </Tabs>
     )
 }
+export default React.memo(ShowTime)

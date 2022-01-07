@@ -121,8 +121,8 @@ export default function AdminUserManager() {
     }, [dispatch])
     return (
         <div className='adminMovieManager'>
-            <h2 className='titile'>Quản người dùng</h2>
-            <Button variant="contained" onClick={handleClickOpen}>
+            <h2 className='title'>Quản người dùng</h2>
+            <Button className='btn-add' variant="contained" onClick={handleClickOpen}>
                 Thêm người dùng
             </Button>
             {user ? <UpdateUser open={open} handleClose={handleClose} user={user} /> : <AddUser open={open} handleClose={handleClose} />}

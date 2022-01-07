@@ -7,7 +7,6 @@ import { NavLink, Route } from "react-router-dom";
 import Swal from 'sweetalert2';
 import logo from '../Assets/Images/logo.png';
 const { Header, Content, Sider } = Layout;
-const { SubMenu } = Menu;
 export default function AdminTemplates(props) {
     const userSignIn = useSelector(state => state.UserManagerReducer.userSignIn)
     const [state, setState] = useState({ collapsed: false });
@@ -42,16 +41,12 @@ export default function AdminTemplates(props) {
                                     ""
                                 )}
                             </div>
-                            <SubMenu key="sub1" icon={<VideoCameraOutlined />} title="Phim">
-                                <Menu.Item key="3" color='red'>
-                                    <NavLink to='/admin/quanlyphim'>Quản lý phim</NavLink>
-                                </Menu.Item>
-                            </SubMenu>
-                            <SubMenu key="sub2" icon={<TeamOutlined />} title="Người dùng">
-                                <Menu.Item key="6">
-                                    <NavLink to='/admin/quanlynguoidung'>Quản lý người dùng</NavLink>
-                                </Menu.Item>
-                            </SubMenu>
+                            <Menu.Item key="3" color='red' icon={<VideoCameraOutlined />}>
+                                <NavLink to='/admin/quanlyphim'>Quản lý phim</NavLink>
+                            </Menu.Item>
+                            <Menu.Item key="6" icon={<TeamOutlined />} >
+                                <NavLink to='/admin/quanlynguoidung'>Quản lý người dùng</NavLink>
+                            </Menu.Item>
                         </Menu>
                     </Sider>
                     <Layout className="site-layout">

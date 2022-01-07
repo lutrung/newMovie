@@ -14,7 +14,19 @@
   }
   .slick-prev:before,
   .slick-next:before {
+    display: none;
     font-size: 50px;
+  }
+  &:hover {
+    .slick-prev:before,
+    .slick-next:before {
+      display: block;
+    }
+    .carousel-item {
+      .carousel-play {
+        display: block;
+      }
+    }
   }
   .slick-dots {
     bottom: 50px;
@@ -38,6 +50,7 @@
       width: 100%;
     }
     .carousel-play {
+      display: none;
       position: absolute;
       top: 50%;
       left: 50%;

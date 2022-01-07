@@ -125,8 +125,8 @@ export default function AdminMovieManager() {
     ];
     return (
         <div className='adminMovieManager'>
-            <h2 className='titile'>Quản lý phim</h2>
-            <Button variant="contained" onClick={handleClickOpen}>
+            <h2 className='title'>Quản lý phim</h2>
+            <Button className='btn-add' variant="contained" onClick={handleClickOpen}>
                 Thêm phim
             </Button>
             {movieCode ? <EditMovie open={open} handleClose={handleClose} movieCode={movieCode} /> : <AddMovie open={open} handleClose={handleClose} />}

@@ -52,6 +52,13 @@
       justify-content: center;
       flex-direction: column;
       height: calc(100% - 70px);
+      position: relative;
+      .left-goback {
+        position: absolute;
+        color: black;
+        bottom: 20px;
+        right: 20px;
+      }
       .chooseSeat {
         margin-bottom: 50px;
         white-space: nowrap;

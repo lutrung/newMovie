@@ -241,11 +241,16 @@ export const updateMovie = (dataMovie) => {
                     Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
                     TokenCybersoft: token
                 }
-            }).then((result) => {
-                console.log(result);
             })
-        } catch (err) {
-            console.log(err)
+            Swal.fire('Thông báo', 'Cập nhật thành công', 'success')
+        } catch (error) {
+            Swal.fire({
+                title: 'Cập nhật thất bại',
+                text: `${error}`,
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
         }
     }
 }

@@ -5,6 +5,9 @@ import Swal from 'sweetalert2'
 import { getTicketRoom } from '../../../Redux/Actions/MovieManagerActions'
 import ChooseSeat from './ChooseSeat'
 import TicketInfo from './TicketInfo'
+import Button from '@mui/material/Button';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 function TicketRoom({ props }) {
     const dispatch = useDispatch()
     const showtimeCode = props.match.params.showtimeCode
@@ -66,7 +69,6 @@ function TicketRoom({ props }) {
                             <p>{ticketRoom.thongTinPhim?.diaChi}</p>
                         </div>
                     </div>
-
                     <div className='header-countDown'>
                         <p>Thời gian giữ ghế</p>
                         <span>{String(Math.floor(minutes)).padStart(2, "0")}:{String(seconds).padStart(2, "0")}</span>
@@ -74,6 +76,11 @@ function TicketRoom({ props }) {
                 </div>
                 <div className='left-body'>
                     <ChooseSeat />
+                    <a className='left-goback' href='/'>
+                        <Button variant="contained" color='inherit'>
+                            Trang chủ &nbsp;<LogoutIcon />
+                        </Button>
+                    </a>
                 </div>
             </div>
             <div className='ticketRoom-right'>

@@ -1,8 +1,14 @@
 .adminMovieManager {
-  .titile {
+  .title {
     font-size: 30px;
+  }
+  .btn-add {
+    font-size: 12px;
   }
   .adminEdit {
     text-align: center;
+  }
+  .ant-btn-primary {
+    background-color: #1976d2;
   }
 }

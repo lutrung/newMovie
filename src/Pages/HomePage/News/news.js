@@ -4,7 +4,7 @@ import { Tabs } from 'antd';
 import 'antd/dist/antd.css';
 import Film24h from './film24h';
 const { TabPane } = Tabs;
-export default function News() {
+function News() {
     return (
         <div id='tintuc' className='news' style={{ backgroundImage: `url(${background})` }}>
             <Tabs className='news-tabs' defaultActiveKey="1" >
@@ -21,3 +21,4 @@ export default function News() {
         </div>
     )
 }
+export default React.memo(News)

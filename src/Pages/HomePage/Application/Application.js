@@ -8,7 +8,7 @@ import slide12 from '../../../Assets/Images/slide12.jpg'
 import slide11 from '../../../Assets/Images/slide11.jpg'
 import Slider from "react-slick";
 
-export default function Application() {
+function Application() {
     const listSlider = [
         {
             img: slide4
@@ -56,3 +56,4 @@ export default function Application() {
         </div>
     )
 }
+export default React.memo(Application)

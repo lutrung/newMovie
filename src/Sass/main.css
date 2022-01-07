@@ -25,6 +25,33 @@ li {
   margin-bottom: 0 !important;
 }
 
+.App {
+  position: relative;
+}
+
+.App #backToTop {
+  position: fixed;
+  background-color: #fa5238;
+  padding: 0;
+  width: 50px;
+  min-width: unset;
+  height: 50px;
+  border-radius: 50%;
+  bottom: 50px;
+  right: 20px;
+}
+
+.App #backToTop .icon {
+  width: 35px;
+  height: 35px;
+}
+
+@media screen and (max-width: 1024px) {
+  .App #backToTop {
+    display: none !important;
+  }
+}
+
 .sk-cube-grid {
   margin: auto;
   position: fixed;
@@ -268,6 +295,14 @@ li {
     padding: 20px 0;
     font-size: 18px;
   }
+  .header .menu-mobile .nav__mobile .menu-list .menu-item .nav__mobile-link {
+    color: black;
+  }
+  .header .menu-mobile .nav__mobile .menu-logout {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
   .header .menu-mobile .nav__input:checked ~ .menu-overlay {
     display: block;
     z-index: 9;
@@ -380,7 +415,17 @@ li {
 
 .carousel .slick-prev:before,
 .carousel .slick-next:before {
+  display: none;
   font-size: 50px;
+}
+
+.carousel:hover .slick-prev:before,
+.carousel:hover .slick-next:before {
+  display: block;
+}
+
+.carousel:hover .carousel-item .carousel-play {
+  display: block;
 }
 
 .carousel .slick-dots {
@@ -409,6 +454,7 @@ li {
 }
 
 .carousel .carousel-item .carousel-play {
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1828,6 +1874,14 @@ li {
       -ms-flex-direction: column;
           flex-direction: column;
   height: calc(100% - 70px);
+  position: relative;
+}
+
+.ticketRoom .ticketRoom-left .left-body .left-goback {
+  position: absolute;
+  color: black;
+  bottom: 20px;
+  right: 20px;
 }
 
 .ticketRoom .ticketRoom-left .left-body .chooseSeat {
@@ -2110,11 +2164,19 @@ li {
   }
 }
 
-.adminMovieManager .titile {
+.adminMovieManager .title {
   font-size: 30px;
+}
+
+.adminMovieManager .btn-add {
+  font-size: 12px;
 }
 
 .adminMovieManager .adminEdit {
   text-align: center;
+}
+
+.adminMovieManager .ant-btn-primary {
+  background-color: #1976d2;
 }
 /*# sourceMappingURL=main.css.map */

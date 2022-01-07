@@ -1,4 +1,4 @@
-import './css/main.css'
+// import './css/main.css'
 import './Sass/main.css';
 import React, { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';

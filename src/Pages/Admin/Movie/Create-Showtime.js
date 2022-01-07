@@ -50,7 +50,7 @@ function CreateShowTime({ open, handleClose, movieCode }) {
         maRap: '',
         giaVe: null,
         maHeThongRap: ''
-    })
+    });
     const onSelectDate = (newDate) => {
         let newDataMovie = { ...formCreate, ngayChieuGioChieu: moment(newDate).format('DD/MM/YYYY hh:mm:ss') }
         setDate(newDate)
@@ -71,7 +71,14 @@ function CreateShowTime({ open, handleClose, movieCode }) {
     }
     useEffect(() => {
         if (movieCode) {
-            setFormCreate({ ...formCreate, maPhim: movieCode })
+            let newFormCrate = {
+                maPhim: movieCode,
+                ngayChieuGioChieu: '',
+                maRap: '',
+                giaVe: null,
+                maHeThongRap: ''
+            }
+            setFormCreate(newFormCrate)
         }
     }, [movieCode])
     return (
@@ -89,7 +96,7 @@ function CreateShowTime({ open, handleClose, movieCode }) {
                     '& .MuiTextField-root': { mb: 2, width: '100%' },
                     '& .MuiOutlinedInput-root, .MuiInputLabel-root': { fontSize: '15px' },
                 }}>
-                    <TextField name='maPhim' id="outlined-basic" label="Mã Phim" disabled variant="outlined" value={movieCode} defaultValue='0' />
+                    <TextField name='maPhim' label="Mã Phim" disabled variant="outlined" value={movieCode} defaultValue='0' />
                     <TextField
                         id="outlined-select-currency"
                         select
@@ -107,7 +114,7 @@ function CreateShowTime({ open, handleClose, movieCode }) {
                     <TextField
                         select
                         name='maRap'
-                        id="outlined-basic"
+
                         label="Mã rạp"
                         value={formCreate.maRap}
                         onChange={onChangeInput}
@@ -118,7 +125,7 @@ function CreateShowTime({ open, handleClose, movieCode }) {
                             </MenuItem>
                         ))}
                     </TextField>
-                    <TextField name='giaVe' id="outlined-basic" label="Giá vé" variant="outlined" value={formCreate.giaVe} onChange={onChangeInput} />
+                    <TextField name='giaVe' label="Giá vé" variant="outlined" value={formCreate.giaVe} onChange={onChangeInput} />
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <DateTimePicker
                             label="Ngày giờ chiếu"

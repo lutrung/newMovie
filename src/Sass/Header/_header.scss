@@ -129,7 +129,15 @@
           .menu-item {
             padding: 20px 0;
             font-size: 18px;
+            .nav__mobile-link {
+              color: black;
+            }
           }
+        }
+        .menu-logout {
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
         }
       }
       .nav__input:checked ~ .menu-overlay {
