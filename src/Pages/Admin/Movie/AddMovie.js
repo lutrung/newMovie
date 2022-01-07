@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useRef, useState } from 'react';
 import imgEmpty from '../../../Assets/Images/unnamed.png'
@@ -55,7 +56,7 @@ export default function AddMovie({ open, handleClose }) {
         tenPhim: '',
         trailer: '',
         ngayKhoiChieu: new Date(),
-        danhGia: null,
+        danhGia: '',
         moTa: '',
         hinhAnh: {},
         biDanh: '',
@@ -119,7 +120,7 @@ export default function AddMovie({ open, handleClose }) {
             tenPhim: '',
             trailer: '',
             ngayKhoiChieu: new Date(),
-            danhGia: 0,
+            danhGia: '',
             moTa: '',
             hinhAnh: {},
             biDanh: '',
@@ -179,6 +180,8 @@ export default function AddMovie({ open, handleClose }) {
         return Object.keys(data).map((key) => {
             if (key !== 'hinhAnh' && key !== 'danhGia') {
                 return data[key] = String(data[key]).trim()
+            } else if (key === 'danhGia') {
+                return data[key] = Number(data[key])
             }
         });
     }
