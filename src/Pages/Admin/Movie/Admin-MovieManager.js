@@ -29,7 +29,7 @@ export default function AdminMovieManager() {
         setMovieCode(movieCode)
         setOpenCreateST(true);
     };
-    const handleCloseCreateST = (movieCode) => {
+    const handleCloseCreateST = () => {
         setOpenCreateST(false);
     };
     const dispatch = useDispatch()
