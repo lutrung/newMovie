@@ -56,7 +56,7 @@ function ShowTimeDetails({ movieDetails }) {
                                                         <div className='info-bottom'>
                                                             <h4>Suất chiếu:</h4>
                                                             {theater.lichChieuPhim?.slice(0, 7).map((time, index) => {
-                                                                return <NavLink to={'/phongve/' + time.maLichChieu} key={index} className='btn-time' variant="outlined">{moment(time.ngayChieuGioChieu).format('hh:mm')}</NavLink>
+                                                                return <NavLink to={'/phongve/' + time.maLichChieu} key={index} className='btn-time' variant="outlined">{moment(time.ngayChieuGioChieu).format('HH:mm')}</NavLink>
                                                             })}
                                                         </div>
                                                     </div>

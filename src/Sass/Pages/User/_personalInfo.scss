@@ -39,3 +39,25 @@
     }
   }
 }
+@media screen and (max-width: 1024px) {
+  .personalInfo {
+    height: auto;
+    flex-direction: column;
+    .personalInfo-left {
+      border-right: none;
+      .left-goback {
+        display: none;
+      }
+    }
+    .personalInfo-right {
+      .right-table {
+        max-height: 300px;
+        overflow: scroll;
+      }
+    }
+    .personalInfo-left,
+    .personalInfo-right {
+      width: 100%;
+    }
+  }
+}

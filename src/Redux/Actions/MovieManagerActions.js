@@ -256,7 +256,6 @@ export const updateMovie = (dataMovie) => {
 }
 export const createShowTime = (formCreate) => {
     return async () => {
-        console.log(formCreate);
         try {
             await Axios({
                 url: 'https://movienew.cybersoft.edu.vn/api/QuanLyDatVe/TaoLichChieu',

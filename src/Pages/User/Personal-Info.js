@@ -140,40 +140,42 @@ function PersonalInfo() {
             </div>
             <div className='personalInfo-right'>
                 <h2 className='title'>Lịch sử đặt vé</h2>
-                <table className="table table-striped right-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">STT</th>
-                            <th scope="col">Tên phim</th>
-                            <th scope="col">Thời lượng</th>
-                            <th scope="col">Tên rạp</th>
-                            <th scope="col">Phòng</th>
-                            <th scope="col">Ghế</th>
-                            <th scope="col">Giá vé</th>
-                            <th scope="col">Mã vé</th>
-                            <th scope="col">Ngày đặt</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {personalInfo.thongTinDatVe?.map((item, index) => {
-                            return <tr key={index}>
-                                <th scope="row">{index + 1}</th>
-                                <td>{item.tenPhim}</td>
-                                <td>{item.thoiLuongPhim}p</td>
-                                <td >{item.danhSachGhe?.[0].tenHeThongRap}</td>
-                                <td >{item.danhSachGhe?.[0].maCumRap}</td>
-                                <td style={{ width: '200px' }}>{item.danhSachGhe?.map((item, index) => {
-                                    return <Fragment key={index}>
-                                        {item.tenGhe} &nbsp;
-                                    </Fragment>
-                                })}</td>
-                                <td>{item.giaVe}</td>
-                                <td>{item.maVe}</td>
-                                <td>{moment(item.ngayDat).format('DD/MM/YYYY')}</td>
+                <div className='right-table'>
+                    <table className="table table-striped">
+                        <thead>
+                            <tr style={{ whiteSpace: 'nowrap' }}>
+                                <th scope="col">STT</th>
+                                <th scope="col">Tên phim</th>
+                                <th scope="col">Thời lượng</th>
+                                <th scope="col">Tên rạp</th>
+                                <th scope="col">Phòng</th>
+                                <th scope="col">Ghế</th>
+                                <th scope="col">Giá vé</th>
+                                <th scope="col">Mã vé</th>
+                                <th scope="col">Ngày đặt</th>
                             </tr>
-                        })}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {personalInfo.thongTinDatVe?.map((item, index) => {
+                                return <tr key={index}>
+                                    <th scope="row">{index + 1}</th>
+                                    <td style={{ whiteSpace: 'nowrap' }}>{item.tenPhim}</td>
+                                    <td>{item.thoiLuongPhim}p</td>
+                                    <td style={{ whiteSpace: 'nowrap' }}>{item.danhSachGhe?.[0].tenHeThongRap}</td>
+                                    <td >{item.danhSachGhe?.[0].maCumRap}</td>
+                                    <td style={{ width: 150, minWidth: 150 }}>{item.danhSachGhe?.map((item, index) => {
+                                        return <Fragment key={index}>
+                                            {item.tenGhe} &nbsp;
+                                        </Fragment>
+                                    })}</td>
+                                    <td>{item.giaVe}</td>
+                                    <td>{item.maVe}</td>
+                                    <td>{moment(item.ngayDat).format('DD/MM/YYYY')}</td>
+                                </tr>
+                            })}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     )

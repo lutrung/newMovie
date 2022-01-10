@@ -20,7 +20,7 @@ function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     async function fetchData() {
-      dispatch(await getMovieList())
+      dispatch(getMovieList())
     }
     fetchData();
     window.scrollTo(0, 0)

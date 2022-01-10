@@ -59,6 +59,15 @@ export default function UpdateUser({ open, handleClose, user }) {
         }
     }, [userUpdate])
     useEffect(() => {
+        setFormUser({
+            taiKhoan: 'Loading...',
+            matKhau: 'Loading...',
+            hoTen: 'Loading...',
+            soDt: 0,
+            email: 'Loading...',
+            maLoaiNguoiDung: '',
+            maNhom: 'Loading...',
+        })
         if (!isEmpty(user)) {
             dispatch(getUserUpdate(user))
         }

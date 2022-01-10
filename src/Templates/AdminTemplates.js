@@ -67,17 +67,7 @@ export default function AdminTemplates(props) {
                             Lư Trung Cinema
                         </Footer> */}
                     </Layout>
-                </Layout> : Swal.fire({
-                    title: 'Bạn không có quyền truy cập !',
-                    icon: 'error',
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Trở lại trang chủ',
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        props.history.push('/')
-                    }
-                })
+                </Layout> : props.history.push('/')
             }}
         />
     )

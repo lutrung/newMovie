@@ -1381,6 +1381,30 @@ li {
   margin: 20px 0;
 }
 
+@media screen and (max-width: 1024px) {
+  .personalInfo {
+    height: auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .personalInfo .personalInfo-left {
+    border-right: none;
+  }
+  .personalInfo .personalInfo-left .left-goback {
+    display: none;
+  }
+  .personalInfo .personalInfo-right .right-table {
+    max-height: 300px;
+    overflow: scroll;
+  }
+  .personalInfo .personalInfo-left,
+  .personalInfo .personalInfo-right {
+    width: 100%;
+  }
+}
+
 .movieDetails .movieDetailsInfo {
   position: relative;
   margin-top: 60px;

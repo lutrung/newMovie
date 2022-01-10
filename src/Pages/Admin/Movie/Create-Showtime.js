@@ -48,7 +48,7 @@ function CreateShowTime({ open, handleClose, movieCode }) {
         maPhim: null,
         ngayChieuGioChieu: '',
         maRap: '',
-        giaVe: null,
+        giaVe: '',
         maHeThongRap: ''
     });
     const onSelectDate = (newDate) => {
@@ -75,9 +75,10 @@ function CreateShowTime({ open, handleClose, movieCode }) {
                 maPhim: movieCode,
                 ngayChieuGioChieu: '',
                 maRap: '',
-                giaVe: null,
+                giaVe: '',
                 maHeThongRap: ''
             }
+            setDate(null)
             setFormCreate(newFormCrate)
         }
     }, [movieCode])
@@ -114,7 +115,6 @@ function CreateShowTime({ open, handleClose, movieCode }) {
                     <TextField
                         select
                         name='maRap'
-
                         label="Mã rạp"
                         value={formCreate.maRap}
                         onChange={onChangeInput}
@@ -125,11 +125,12 @@ function CreateShowTime({ open, handleClose, movieCode }) {
                             </MenuItem>
                         ))}
                     </TextField>
-                    <TextField name='giaVe' label="Giá vé" variant="outlined" value={formCreate.giaVe} onChange={onChangeInput} />
+                    <TextField name='giaVe' type='number' label="Giá vé" variant="outlined" value={formCreate.giaVe} onChange={onChangeInput} />
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <DateTimePicker
                             label="Ngày giờ chiếu"
                             value={date}
+                            disablePast
                             name='ngayChieuGioChieu'
                             onChange={(newDate) => onSelectDate(newDate)}
                             renderInput={(params) => <TextField {...params} />}
