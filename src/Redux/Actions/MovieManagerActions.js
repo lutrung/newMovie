@@ -240,11 +240,12 @@ export const updateMovie = (dataMovie) => {
                 data: dataMovie,
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
-                    TokenCybersoft: token
+                    // TokenCybersoft: token
                 }
             })
             Swal.fire('Thông báo', 'Cập nhật thành công', 'success')
         } catch (error) {
+            console.log(error);
             Swal.fire({
                 title: 'Cập nhật thất bại',
                 text: `${error}`,

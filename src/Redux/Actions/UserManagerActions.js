@@ -65,7 +65,7 @@ export const getUserList = () => {
             })
             dispatch({
                 type: USER_LIST,
-                userList: result.data.content,
+                userList: result.data,
             })
         } catch (error) {
             console.log(error);
@@ -124,7 +124,7 @@ export const getUserUpdate = (user) => {
             }).then((result) => {
                 dispatch({
                     type: USER_UPDATE,
-                    userUpdate: result.data.content,
+                    userUpdate: result.data,
                 })
             })
         } catch (error) {
@@ -165,7 +165,7 @@ export const getPersonalInfo = () => {
             })
             dispatch({
                 type: PERSONAL_INFO,
-                personalInfo: result.data.content
+                personalInfo: result.data
             })
         } catch (error) {
             console.log(error);
