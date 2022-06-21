@@ -8,26 +8,28 @@ export const signInAction = (accounts) => {
     return async (dispatch) => {
         try {
             let result = await Axios({
-                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap',
+                url: 'https://movie0706.cybersoft.edu.vn/api/quanlynguoidung/dangnhap',
                 method: 'POST',
                 data: accounts,
-                headers: {
-                    TokenCybersoft: token
-                }
+                // headers: {
+                //     TokenCybersoft: token
+                // }
             })
-            localStorage.setItem("USER_SIGNIN", JSON.stringify(result.data.content));
-            localStorage.setItem("ACCESSTOKEN", result.data.content.accessToken);
+            console.log(result.data);
+            localStorage.setItem("USER_SIGNIN", JSON.stringify(result.data));
+            localStorage.setItem("ACCESSTOKEN", result.data.accessToken);
             Swal.fire('Thông báo', 'Đăng nhập thành công', 'success')
             dispatch({
                 type: SIGN_IN,
-                userSignIn: result.data.content,
+                userSignIn: result.data,
             })
-            if (result.data.content.maLoaiNguoiDung === 'QuanTri') {
+            if (result.data === 'QuanTri') {
                 history.push('/admin')
             } else {
                 history.push('/')
             }
         } catch (err) {
+            console.log(err);
             Swal.fire('Thông báo', 'Tài khoản hoặc mật khẩu không đúng', 'error')
         }
     }
@@ -36,12 +38,12 @@ export const signUpAction = (accounts) => {
     return async () => {
         try {
             await Axios({
-                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy',
+                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy',
                 method: 'POST',
                 data: accounts,
-                headers: {
-                    TokenCybersoft: token
-                }
+                // headers: {
+                //     TokenCybersoft: token
+                // }
             }).then((result) => {
                 Swal.fire('Thông báo', 'Đăng ký thành công', 'success')
                 history.push('/dangnhap')
@@ -55,7 +57,7 @@ export const getUserList = () => {
     return async (dispatch) => {
         try {
             let result = await Axios({
-                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01',
+                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01',
                 method: 'GET',
                 headers: {
                     TokenCybersoft: token
@@ -63,7 +65,7 @@ export const getUserList = () => {
             })
             dispatch({
                 type: USER_LIST,
-                userList: result.data.content,
+                userList: result.data,
             })
         } catch (error) {
             console.log(error);
@@ -74,7 +76,7 @@ export const deleteUser = (account) => {
     return async (dispatch) => {
         try {
             await Axios({
-                url: `https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${account}`,
+                url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${account}`,
                 method: 'DELETE',
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
@@ -93,7 +95,7 @@ export const addUser = (formUser) => {
     return async (dispatch) => {
         try {
             await Axios({
-                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung',
+                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung',
                 method: 'POST',
                 data: formUser,
                 headers: {
@@ -113,7 +115,7 @@ export const getUserUpdate = (user) => {
     return async (dispatch) => {
         try {
             await Axios({
-                url: `https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${user}`,
+                url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${user}`,
                 method: 'POST',
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
@@ -122,7 +124,7 @@ export const getUserUpdate = (user) => {
             }).then((result) => {
                 dispatch({
                     type: USER_UPDATE,
-                    userUpdate: result.data.content,
+                    userUpdate: result.data,
                 })
             })
         } catch (error) {
@@ -134,7 +136,7 @@ export const updateUser = (formUser) => {
     return async (dispatch) => {
         try {
             await Axios({
-                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung',
+                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung',
                 method: 'POST',
                 data: formUser,
                 headers: {
@@ -154,7 +156,7 @@ export const getPersonalInfo = () => {
     return async (dispatch) => {
         try {
             let result = await Axios({
-                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/ThongTinTaiKhoan',
+                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThongTinTaiKhoan',
                 method: 'POST',
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
@@ -163,7 +165,7 @@ export const getPersonalInfo = () => {
             })
             dispatch({
                 type: PERSONAL_INFO,
-                personalInfo: result.data.content
+                personalInfo: result.data
             })
         } catch (error) {
             console.log(error);
@@ -174,7 +176,7 @@ export const updateInfo = (formUser) => {
     return async (dispatch) => {
         try {
             await Axios({
-                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung',
+                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung',
                 method: 'PUT',
                 data: formUser,
                 headers: {

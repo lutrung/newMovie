@@ -29,7 +29,7 @@ function ShowTimeDetails({ movieDetails }) {
                     <TabPane tab="Lịch chiếu" key="1">
                         <div className='showTime-container'>
                             <div className=" nav flex-column nav-pills  showTime-logo" >
-                                {movieDetails.heThongRapChieu?.map((theaterSystem, index) => {
+                                {movieDetails?.heThongRapChieu?.map((theaterSystem, index) => {
                                     return (
                                         <a key={index} className={`logo-item ${index === 0 ? 'active' : null}`} id={theaterSystem.maHeThongRap + "-tab"} data-bs-toggle="pill" href={`#${theaterSystem.maHeThongRap}`}
                                             role="tab" aria-controls={theaterSystem.maHeThongRap} aria-selected="true" onClick={() => onChangeCluster(index)}>
@@ -40,14 +40,15 @@ function ShowTimeDetails({ movieDetails }) {
                             </div>
                             <div className=" showTime-cinema">
                                 <div className="tab-content" id="v-pills-tabContent">
-                                    {movieDetails.heThongRapChieu?.map((theaterSystem, index) => {
+                                    {movieDetails?.heThongRapChieu?.map((theaterSystem, index) => {
                                         return (
                                             <div key={index} className={`tab-pane fade show ${index === 0 ? 'active' : null}`}
                                                 id={theaterSystem.maHeThongRap} role="tabpanel" aria-labelledby={theaterSystem.maHeThongRap + "-tab"}>
                                                 {theaterSystem.cumRapChieu?.map((theater, index) => {
+                                                    console.log(theater);
                                                     return <div key={index} className='theater-item'>
                                                         <div className='info-top'>
-                                                            <img src={theater.hinhAnh} alt='...' />
+                                                            <img src='https://png.pngtree.com/png-clipart/20190604/original/pngtree-cinema-png-image_1547236.jpg' alt={theater.hinhAnh} />
                                                             <div>
                                                                 <h3 className='top-name'>{theater.tenCumRap}</h3>
                                                                 <p className='top-rate'>157 phút - TIX 0 - IMDb 6.8</p>

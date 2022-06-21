@@ -6,7 +6,7 @@ export const getBannerList = () => {
     return async (dispatch) => {
         try {
             let result = await Axios({
-                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachBanner',
+                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachBanner',
                 method: 'GET',
                 headers: {
                     TokenCybersoft: token
@@ -26,7 +26,7 @@ export const getMovieList = () => {
     return async (dispatch) => {
         try {
             let result = await Axios({
-                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
+                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
                 method: 'GET',
                 headers: {
                     TokenCybersoft: token
@@ -34,7 +34,7 @@ export const getMovieList = () => {
             })
             dispatch({
                 type: GET_MOVIES_LIST,
-                moviesList: result.data.content
+                moviesList: result.data
             })
         } catch (error) {
             console.log('Thất bại', error.response)
@@ -45,7 +45,7 @@ export const getCinemaSystem = () => {
     return async (dispatch) => {
         try {
             let result = await Axios({
-                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap',
+                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap',
                 method: 'GET',
                 headers: {
                     TokenCybersoft: token
@@ -53,7 +53,7 @@ export const getCinemaSystem = () => {
             })
             dispatch({
                 type: GET_CINEMA_SYSTEM,
-                cinemaSystem: result.data.content
+                cinemaSystem: result.data
             })
         } catch (error) {
             console.log('Thất bại', error.response)
@@ -64,7 +64,7 @@ export const getTheTheaterClusterByCode = (code) => {
     return async (dispatch) => {
         try {
             let result = await Axios({
-                url: `https://movienew.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${code}`,
+                url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${code}`,
                 method: 'GET',
                 headers: {
                     TokenCybersoft: token
@@ -72,7 +72,7 @@ export const getTheTheaterClusterByCode = (code) => {
             })
             dispatch({
                 type: GET_CINEMA_BY_CODE,
-                cinemaByCode: result.data.content
+                cinemaByCode: result.data
             })
         } catch (error) {
             console.log('Thất bại', error.response)
@@ -83,7 +83,7 @@ export const getShowSchedule = (code) => {
     return async (dispatch) => {
         try {
             let result = await Axios({
-                url: `https://movienew.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${code}&maNhom=GP01`,
+                url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${code}&maNhom=GP01`,
                 method: 'GET',
                 headers: {
                     TokenCybersoft: token
@@ -91,7 +91,7 @@ export const getShowSchedule = (code) => {
             })
             dispatch({
                 type: GET_SHOW_SCHEDULE,
-                showTimes: result.data.content
+                showTimes: result.data
             })
         } catch (error) {
             console.log('Thất bại', error.response)
@@ -108,7 +108,7 @@ export const getMovieDetails = (movieCode) => {
     return async (dispatch) => {
         try {
             await Axios({
-                url: `https://movienew.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${movieCode}`,
+                url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${movieCode}`,
                 method: 'GET',
                 headers: {
                     TokenCybersoft: token
@@ -116,7 +116,7 @@ export const getMovieDetails = (movieCode) => {
             }).then((result) => {
                 dispatch({
                     type: GET_MOVIE_DETAILS,
-                    movieDetails: result.data.content
+                    movieDetails: result.data
                 })
             })
         } catch (error) {
@@ -129,7 +129,7 @@ export const getTicketRoom = (showtimeCode) => {
     return async (dispatch) => {
         try {
             await Axios({
-                url: `https://movienew.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${showtimeCode}`,
+                url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${showtimeCode}`,
                 method: 'GET',
                 headers: {
                     TokenCybersoft: token
@@ -137,7 +137,7 @@ export const getTicketRoom = (showtimeCode) => {
             }).then((result) => {
                 dispatch({
                     type: GET_TICKET_ROOM,
-                    ticketRoom: result.data.content
+                    ticketRoom: result.data
                 })
             })
 
@@ -150,12 +150,12 @@ export const bookTicketsAction = (tickets) => {
     return async (dispatch) => {
         try {
             await Axios({
-                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyDatVe/DatVe',
+                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe',
                 method: 'POST',
                 data: tickets,
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
-                    TokenCybersoft: token
+                    // TokenCybersoft: token
                 }
             }).then((result) => {
                 dispatch(getTicketRoom(tickets.maLichChieu))
@@ -165,7 +165,7 @@ export const bookTicketsAction = (tickets) => {
                 })
             })
         } catch (error) {
-            Swal.fire('Thông báo', 'Mua vé thất bại', 'error')
+            Swal.fire('Thông báo', `Mua vé thất bại ${error}`, 'error')
         }
     }
 }
@@ -173,7 +173,7 @@ export const deleteMovie = (movieCode) => {
     return async (dispatch) => {
         try {
             await Axios({
-                url: `https://movienew.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${movieCode}`,
+                url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${movieCode}`,
                 method: 'DELETE',
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
@@ -183,10 +183,11 @@ export const deleteMovie = (movieCode) => {
                 dispatch(getMovieList())
                 Swal.fire('Thông báo', 'Xóa thành công', 'success')
             }).catch((error) => {
-                Swal.fire('Thông báo', 'Xóa thất bại', 'error')
+                Swal.fire('Thông báo', `Xóa thất bại ${error}`, 'error')
             })
         } catch (error) {
             console.log(error);
+            Swal.fire('Thông báo', `Xóa thất bại ${error}`, 'error')
         }
     }
 }
@@ -194,7 +195,7 @@ export const addMovie = (dataMovie) => {
     return async (dispatch) => {
         try {
             await Axios({
-                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyPhim/ThemPhimUploadHinh',
+                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/ThemPhimUploadHinh',
                 method: 'POST',
                 data: dataMovie,
                 headers: {
@@ -214,7 +215,7 @@ export const getInfoMovie = (movieCode) => {
     return async (dispatch) => {
         try {
             await Axios({
-                url: `https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${movieCode}`,
+                url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${movieCode}`,
                 method: 'GET',
                 headers: {
                     TokenCybersoft: token
@@ -222,7 +223,7 @@ export const getInfoMovie = (movieCode) => {
             }).then((result) => {
                 dispatch({
                     type: GET_INFO_MOVIE,
-                    movieInfo: result.data.content
+                    movieInfo: result.data
                 })
             })
         } catch (err) {
@@ -234,16 +235,17 @@ export const updateMovie = (dataMovie) => {
     return async () => {
         try {
             await Axios({
-                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyPhim/CapNhatPhimUpload',
+                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/CapNhatPhimUpload',
                 method: 'POST',
                 data: dataMovie,
                 headers: {
                     Authorization: 'Bearer ' + localStorage.getItem("ACCESSTOKEN"),
-                    TokenCybersoft: token
+                    // TokenCybersoft: token
                 }
             })
             Swal.fire('Thông báo', 'Cập nhật thành công', 'success')
         } catch (error) {
+            console.log(error);
             Swal.fire({
                 title: 'Cập nhật thất bại',
                 text: `${error}`,
@@ -258,7 +260,7 @@ export const createShowTime = (formCreate) => {
     return async () => {
         try {
             await Axios({
-                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyDatVe/TaoLichChieu',
+                url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/TaoLichChieu',
                 method: 'POST',
                 data: formCreate,
                 headers: {
