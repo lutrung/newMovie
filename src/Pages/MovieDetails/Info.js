@@ -12,7 +12,7 @@ function Info({ movieDetails }) {
             <div className='movieDetailsInfo-blur' style={{ backgroundImage: `url(${background})` }}></div>
             <div className='movieDetailsInfo-container'>
                 <div className='movieDetailsInfo-left'>
-                    <div className='left-img' style={{ backgroundImage: `url(${movieDetails.hinhAnh})` }}></div>
+                    <div className='left-img'></div>
                     <div className='left-info'>
                         <p className='info-date'>{moment(movieDetails.ngayKhoiChieu).format('DD/MM/YYYY')}</p>
                         <div className='info-name'>
@@ -40,4 +40,3 @@ function Info({ movieDetails }) {
     )
 }
 export default React.memo(Info);
-
