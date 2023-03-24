@@ -12,7 +12,7 @@ function ShowTime() {
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 2,
-        autoplay: true,
+        // autoplay: true,
         autoplaySpeed: 2000,
         responsive: [
             {
@@ -53,7 +53,7 @@ function ShowTime() {
             </TabPane>
             <TabPane tab="Sắp chiếu" key="2">
                 <Slider {...settings}>
-                    {moviesList?.map((item, index) => {
+                    {moviesList?.slice(15).map((item, index) => {
                         return (
                             <ShowTimeItem key={index} item={item} showing={false} />
                         )

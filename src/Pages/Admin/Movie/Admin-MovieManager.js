@@ -13,7 +13,6 @@ import EditMovie from './EditMovie';
 
 export default function AdminMovieManager() {
     const [movieCode, setMovieCode] = useState()
-
     // DIALOG
     const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
@@ -124,8 +123,7 @@ export default function AdminMovieManager() {
         },
     ];
     const [valueee, setvaluee] = React.useState(null);
-    console.log(valueee);
-    let onchangeee = (event)=>{
+    let onchangeee = (event) => {
         let newValue = (parseInt(event.target.value.replace(/[^\d]+/gi, '')) || 0)
         setvaluee(newValue.toLocaleString('en-US'))
     }
@@ -135,7 +133,7 @@ export default function AdminMovieManager() {
             <Button className='btn-add' variant="contained" onClick={handleClickOpen}>
                 Thêm phim
             </Button>
-           <input id="Price" type="text" pattern="^[\d,]+$" classname="validate" value={valueee} onChange={(e)=>onchangeee(e)} />
+            <input id="Price" type="text" pattern="^[\d,]+$" classname="validate" value={valueee} onChange={(e) => onchangeee(e)} />
 
             {movieCode ? <EditMovie open={open} handleClose={handleClose} movieCode={movieCode} /> : <AddMovie open={open} handleClose={handleClose} />}
             <CreateShowtime open={openCreateST} handleClose={handleCloseCreateST} movieCode={movieCode} />

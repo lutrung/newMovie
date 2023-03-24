@@ -18,7 +18,6 @@ export default function AdminUserManager() {
     const [open, setOpen] = React.useState(false);
     const userListRedux = useSelector(state => state.UserManagerReducer.userList)
     const { Search } = Input;
-
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -27,7 +26,6 @@ export default function AdminUserManager() {
         setOpen(false);
     };
     const onSearch = (keyWord) => {
-        console.log(keyWord);
         if (keyWord) {
             let newData = userList.filter((item) => {
                 return item.taiKhoan.toLowerCase().indexOf(keyWord) !== -1

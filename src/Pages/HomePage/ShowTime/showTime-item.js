@@ -33,7 +33,7 @@ export default function ShowTimeItem({ item, showing }) {
                 </Box>
             </Modal>
             <div className='showTime-item'>
-                <div className='item-thumbnail' >
+                <div className='item-thumbnail' style={{ backgroundImage: `url(${item?.hinhAnh})` }}>
                     <div className='item-overlay'></div>
                     <button className='item-play' onClick={handleOpen}>
                         <img src={playIcon} style={{ width: '100%' }} alt='...' />

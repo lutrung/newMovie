@@ -45,7 +45,6 @@ function ShowTimeDetails({ movieDetails }) {
                                             <div key={index} className={`tab-pane fade show ${index === 0 ? 'active' : null}`}
                                                 id={theaterSystem.maHeThongRap} role="tabpanel" aria-labelledby={theaterSystem.maHeThongRap + "-tab"}>
                                                 {theaterSystem.cumRapChieu?.map((theater, index) => {
-                                                    console.log(theater);
                                                     return <div key={index} className='theater-item'>
                                                         <div className='info-top'>
                                                             <img src='https://png.pngtree.com/png-clipart/20190604/original/pngtree-cinema-png-image_1547236.jpg' alt={theater.hinhAnh} />

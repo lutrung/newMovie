@@ -12,7 +12,6 @@ function PersonalInfo() {
     const dispatch = useDispatch()
     const [open, setOpen] = React.useState(false);
     const personalInfo = useSelector(state => state.UserManagerReducer.personalInfo)
-
     const [formInfo, setFormInfo] = useState({
         taiKhoan: 'Loading...',
         matKhau: 'Loading...',

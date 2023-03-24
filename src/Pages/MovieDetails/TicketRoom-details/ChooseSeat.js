@@ -12,7 +12,7 @@ function ChooseSeat() {
         <div className='chooseSeat'>
             {ticketRoom.danhSachGhe?.map((seat, index) => {
                 let vipSeatsCss = seat.loaiGhe === 'Thuong' ? '' : 'vipSeats';
-                let bookedSeatsCss = seat.daDat ? 'bookedSeats' : '';
+                let bookedSeatsCss = seat.daDat === true ? 'bookedSeats' : '';
                 let disable = seat.daDat ? 'disable' : '';
                 let seatNumberCss = seat.daDat ? 'X' : seat.stt;
                 let indexBookingSeat = listBookingSeat.findIndex(bookingSeat => seat.maGhe === bookingSeat.seatCode)

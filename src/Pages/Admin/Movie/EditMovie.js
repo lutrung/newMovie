@@ -60,11 +60,12 @@ export default function EditMovie({ open, handleClose, movieCode }) {
             return dataMovie[key] = String(dataMovie[key]).trim()
         });
         // ---------------------------
+
         let form_data = new FormData();
         for (let key in dataMovie) {
             form_data.append(key, dataMovie[key]);
         }
-        dispatch(updateMovie(form_data))
+        dispatch(updateMovie(dataMovie))
         handleClose()
     }
     useEffect(() => {

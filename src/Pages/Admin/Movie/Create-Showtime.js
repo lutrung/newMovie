@@ -13,7 +13,7 @@ import TextField from '@mui/material/TextField';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createShowTime, getTheTheaterClusterByCode } from '../../../Redux/Actions/MovieManagerActions';
+import { createShowTime, getCinemaSystem } from '../../../Redux/Actions/MovieManagerActions';
 const theaterCluster = [
     {
         value: 'BHDStar',
@@ -42,8 +42,9 @@ const theaterCluster = [
 ];
 function CreateShowTime({ open, handleClose, movieCode }) {
     const dispatch = useDispatch()
-    const cinemaByCode = useSelector(state => state.MovieManagerReducer.cinemaByCode)
     const [date, setDate] = React.useState(null);
+    const [clusterByCode, setClusterByCode] = useState('')
+    const cinemaSystem = useSelector(state => state.MovieManagerReducer.cinemaSystem)
     const [formCreate, setFormCreate] = useState({
         maPhim: null,
         ngayChieuGioChieu: '',
@@ -59,7 +60,7 @@ function CreateShowTime({ open, handleClose, movieCode }) {
     const onChangeInput = (event) => {
         let { name, value } = event.target
         if (name === 'maHeThongRap') {
-            dispatch(getTheTheaterClusterByCode(value))
+            setClusterByCode(value)
         }
         let newFormCrate = { ...formCreate, [name]: value }
         setFormCreate(newFormCrate)
@@ -81,7 +82,12 @@ function CreateShowTime({ open, handleClose, movieCode }) {
             setDate(null)
             setFormCreate(newFormCrate)
         }
+        async function fetchData() {
+            dispatch(await getCinemaSystem())
+        }
+        fetchData()
     }, [movieCode])
+
     return (
         <Dialog
             fullWidth
@@ -119,11 +125,18 @@ function CreateShowTime({ open, handleClose, movieCode }) {
                         value={formCreate.maRap}
                         onChange={onChangeInput}
                     >
-                        {cinemaByCode.map((option, index) => (
-                            <MenuItem key={index} value={option.maCumRap}>
-                                {option.maCumRap}
-                            </MenuItem>
-                        ))}
+
+                        {cinemaSystem?.map((item) => {
+                            if (item?.maHeThongRap == clusterByCode) {
+                                return item.lstCumRap?.map((option, index) => {
+                                    return <MenuItem key={index} value={option.maCumRap}>
+                                        {option.tenCumRap}
+                                    </MenuItem>
+
+                                })
+
+                            }
+                        })}
                     </TextField>
                     <TextField name='giaVe' type='number' label="Giá vé" variant="outlined" value={formCreate.giaVe} onChange={onChangeInput} />
                     <LocalizationProvider dateAdapter={AdapterDateFns}>

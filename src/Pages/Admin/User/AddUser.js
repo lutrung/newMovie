@@ -29,7 +29,7 @@ export default function AddUser({ open, handleClose }) {
         soDt: null,
         email: '',
         maLoaiNguoiDung: 'KhachHang',
-        maNhom: 'GP01',
+        maNhom: 'GP05',
     })
 
     const onChangeInput = (event) => {
@@ -86,7 +86,7 @@ export default function AddUser({ open, handleClose }) {
                                 </MenuItem>
                             ))}
                         </TextField>
-                        <TextField name='maNhom' id="outlined-basic" label="Mã nhóm" value='GP01' disabled variant="outlined" onChange={onChangeInput} />
+                        <TextField name='maNhom' id="outlined-basic" label="Mã nhóm" value='GP05' disabled variant="outlined" onChange={onChangeInput} />
                     </div>
                 </Box>
             </DialogContent>
